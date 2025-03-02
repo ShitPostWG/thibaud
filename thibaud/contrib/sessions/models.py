@@ -1,4 +1,7 @@
-from thibaud.contrib.sessions.base_session import AbstractBaseSession, BaseSessionManager
+from thibaud.contrib.sessions.base_session import (
+    AbstractBaseSession,
+    BaseSessionManager,
+)
 
 
 class SessionManager(BaseSessionManager):

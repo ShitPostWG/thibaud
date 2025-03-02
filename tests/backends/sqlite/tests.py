@@ -17,7 +17,12 @@ from thibaud.db import (
 )
 from thibaud.db.models import Aggregate, Avg, StdDev, Sum, Variance
 from thibaud.db.utils import ConnectionHandler
-from thibaud.test import SimpleTestCase, TestCase, TransactionTestCase, override_settings
+from thibaud.test import (
+    SimpleTestCase,
+    TestCase,
+    TransactionTestCase,
+    override_settings,
+)
 from thibaud.test.utils import CaptureQueriesContext, isolate_apps
 
 from ..models import Item, Object, Square

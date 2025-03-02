@@ -214,7 +214,7 @@ class ManyToManyTests(TestCase):
         )
         self.assertSequenceEqual(
             Article.objects.filter(publications=self.p1.id),
-            [self.a2,self.a1],
+            [self.a2, self.a1],
         )
         self.assertSequenceEqual(
             Article.objects.filter(publications=self.p1),

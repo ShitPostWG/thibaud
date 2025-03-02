@@ -1,5 +1,5 @@
 """
- This module contains useful utilities for GeoThibaud.
+This module contains useful utilities for GeoThibaud.
 """
 
 from thibaud.contrib.gis.utils.ogrinfo import ogrinfo

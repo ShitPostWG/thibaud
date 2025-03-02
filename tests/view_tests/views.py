@@ -15,7 +15,10 @@ from thibaud.views.debug import (
     SafeExceptionReporterFilter,
     technical_500_response,
 )
-from thibaud.views.decorators.debug import sensitive_post_parameters, sensitive_variables
+from thibaud.views.decorators.debug import (
+    sensitive_post_parameters,
+    sensitive_variables,
+)
 
 TEMPLATES_PATH = Path(__file__).resolve().parent / "templates"
 

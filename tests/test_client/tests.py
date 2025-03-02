@@ -787,7 +787,9 @@ class ClientTest(TestCase):
         self.client.force_login(self.u1)
         self.assertEqual(self.u1.backend, "thibaud.contrib.auth.backends.ModelBackend")
 
-    @override_settings(SESSION_ENGINE="thibaud.contrib.sessions.backends.signed_cookies")
+    @override_settings(
+        SESSION_ENGINE="thibaud.contrib.sessions.backends.signed_cookies"
+    )
     def test_logout_cookie_sessions(self):
         self.test_logout()
 

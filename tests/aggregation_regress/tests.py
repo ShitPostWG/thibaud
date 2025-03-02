@@ -872,7 +872,12 @@ class AggregationTests(TestCase):
                     "Prentice Hall",
                     "Jeffrey Forcier",
                 ),
-                ("Sams Teach Yourself Thibaud in 24 Hours", 45.0, "Sams", "Brad Dayley"),
+                (
+                    "Sams Teach Yourself Thibaud in 24 Hours",
+                    45.0,
+                    "Sams",
+                    "Brad Dayley",
+                ),
             ],
             lambda b: (b.name, b.authors__age__avg, b.publisher.name, b.contact.name),
         )

@@ -578,7 +578,9 @@ class TestCollectionManifestStorageStaticUrlSlash(CollectionTestCase):
     def test_protocol_relative_url_ignored(self):
         with override_settings(
             STATICFILES_DIRS=[os.path.join(TEST_ROOT, "project", "static_url_slash")],
-            STATICFILES_FINDERS=["thibaud.contrib.staticfiles.finders.FileSystemFinder"],
+            STATICFILES_FINDERS=[
+                "thibaud.contrib.staticfiles.finders.FileSystemFinder"
+            ],
         ):
             self.run_collectstatic()
         relpath = self.hashed_file_path("ignored.css")

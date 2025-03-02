@@ -651,13 +651,17 @@ class Field(RegisterLookupMixin):
         elif path.startswith("thibaud.db.models.fields.files"):
             path = path.replace("thibaud.db.models.fields.files", "thibaud.db.models")
         elif path.startswith("thibaud.db.models.fields.generated"):
-            path = path.replace("thibaud.db.models.fields.generated", "thibaud.db.models")
+            path = path.replace(
+                "thibaud.db.models.fields.generated", "thibaud.db.models"
+            )
         elif path.startswith("thibaud.db.models.fields.json"):
             path = path.replace("thibaud.db.models.fields.json", "thibaud.db.models")
         elif path.startswith("thibaud.db.models.fields.proxy"):
             path = path.replace("thibaud.db.models.fields.proxy", "thibaud.db.models")
         elif path.startswith("thibaud.db.models.fields.composite"):
-            path = path.replace("thibaud.db.models.fields.composite", "thibaud.db.models")
+            path = path.replace(
+                "thibaud.db.models.fields.composite", "thibaud.db.models"
+            )
         elif path.startswith("thibaud.db.models.fields"):
             path = path.replace("thibaud.db.models.fields", "thibaud.db.models")
         # Return basic info - other fields should override this.

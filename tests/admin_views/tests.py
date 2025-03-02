@@ -2678,7 +2678,9 @@ class AdminViewPermissionsTest(TestCase):
         self.assertContains(response, "<h1>Select article to view</h1>")
         self.assertEqual(response.context["title"], "Select article to view")
         response = self.client.get(article_change_url)
-        self.assertContains(response, "<title>View article | Thibaud site admin</title>")
+        self.assertContains(
+            response, "<title>View article | Thibaud site admin</title>"
+        )
         self.assertContains(response, "<h1>View article</h1>")
         self.assertContains(response, "<label>Extra form field:</label>")
         self.assertContains(
@@ -2831,7 +2833,9 @@ class AdminViewPermissionsTest(TestCase):
         self.client.force_login(self.viewuser)
         response = self.client.get(change_url)
         self.assertEqual(response.context["title"], "View article")
-        self.assertContains(response, "<title>View article | Thibaud site admin</title>")
+        self.assertContains(
+            response, "<title>View article | Thibaud site admin</title>"
+        )
         self.assertContains(response, "<h1>View article</h1>")
         self.assertContains(
             response,
@@ -4582,7 +4586,8 @@ class AdminViewListEditable(TestCase):
         fields are displayed but separately (not in the table) and only once.
         """
         story1 = Story.objects.create(
-            title="The adventures of Guido", content="Once upon a time in Thibaudland..."
+            title="The adventures of Guido",
+            content="Once upon a time in Thibaudland...",
         )
         story2 = Story.objects.create(
             title="Crouching Tiger, Hidden Python",
@@ -7158,7 +7163,7 @@ class ReadonlyTest(AdminFieldExtractionMixin, TestCase):
         url = reverse("admin:admin_views_pizza_change", args=(pizza.pk,))
         with self.settings(LANGUAGE_CODE="fr"):
             response = self.client.get(url)
-        self.assertContains(response, "<label>Toppings\u00A0:</label>", html=True)
+        self.assertContains(response, "<label>Toppings\u00a0:</label>", html=True)
 
 
 @override_settings(ROOT_URLCONF="admin_views.urls")
@@ -7693,7 +7698,9 @@ except ImportError:
 @unittest.skipUnless(docutils, "no docutils installed.")
 @override_settings(ROOT_URLCONF="admin_views.urls")
 @modify_settings(
-    INSTALLED_APPS={"append": ["thibaud.contrib.admindocs", "thibaud.contrib.flatpages"]}
+    INSTALLED_APPS={
+        "append": ["thibaud.contrib.admindocs", "thibaud.contrib.flatpages"]
+    }
 )
 class AdminDocsTest(TestCase):
     @classmethod

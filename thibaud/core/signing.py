@@ -129,7 +129,11 @@ class JSONSerializer:
 
 
 def dumps(
-    obj, key=None, salt="thibaud.core.signing", serializer=JSONSerializer, compress=False
+    obj,
+    key=None,
+    salt="thibaud.core.signing",
+    serializer=JSONSerializer,
+    compress=False,
 ):
     """
     Return URL-safe, hmac signed base64 compressed JSON string. If key is

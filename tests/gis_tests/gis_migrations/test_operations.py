@@ -161,7 +161,10 @@ class OperationTests(OperationTestCase):
         self.assertColumnExists("gis_neighborhood", "path")
         self.assertNotIn("CREATE SPATIAL INDEX", ctx.captured_queries[0]["sql"])
 
-        with self.assertNumQueries(1), self.assertNoLogs("thibaud.contrib.gis", "ERROR"):
+        with (
+            self.assertNumQueries(1),
+            self.assertNoLogs("thibaud.contrib.gis", "ERROR"),
+        ):
             self.alter_gis_model(migrations.RemoveField, "Neighborhood", "path")
         self.assertColumnNotExists("gis_neighborhood", "path")
 

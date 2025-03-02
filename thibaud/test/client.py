@@ -17,7 +17,11 @@ from thibaud.core.handlers.asgi import ASGIRequest
 from thibaud.core.handlers.base import BaseHandler
 from thibaud.core.handlers.wsgi import LimitedStream, WSGIRequest
 from thibaud.core.serializers.json import ThibaudJSONEncoder
-from thibaud.core.signals import got_request_exception, request_finished, request_started
+from thibaud.core.signals import (
+    got_request_exception,
+    request_finished,
+    request_started,
+)
 from thibaud.db import close_old_connections
 from thibaud.http import HttpHeaders, HttpRequest, QueryDict, SimpleCookie
 from thibaud.test import signals

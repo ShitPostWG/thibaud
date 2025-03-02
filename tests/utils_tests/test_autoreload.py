@@ -578,7 +578,8 @@ class ReloaderTests(SimpleTestCase):
 class IntegrationTests:
     @mock.patch("thibaud.utils.autoreload.BaseReloader.notify_file_changed")
     @mock.patch(
-        "thibaud.utils.autoreload.iter_all_python_module_files", return_value=frozenset()
+        "thibaud.utils.autoreload.iter_all_python_module_files",
+        return_value=frozenset(),
     )
     def test_glob(self, mocked_modules, notify_mock):
         non_py_file = self.ensure_file(self.tempdir / "non_py_file")
@@ -591,7 +592,8 @@ class IntegrationTests:
 
     @mock.patch("thibaud.utils.autoreload.BaseReloader.notify_file_changed")
     @mock.patch(
-        "thibaud.utils.autoreload.iter_all_python_module_files", return_value=frozenset()
+        "thibaud.utils.autoreload.iter_all_python_module_files",
+        return_value=frozenset(),
     )
     def test_multiple_globs(self, mocked_modules, notify_mock):
         self.ensure_file(self.tempdir / "x.test")
@@ -604,7 +606,8 @@ class IntegrationTests:
 
     @mock.patch("thibaud.utils.autoreload.BaseReloader.notify_file_changed")
     @mock.patch(
-        "thibaud.utils.autoreload.iter_all_python_module_files", return_value=frozenset()
+        "thibaud.utils.autoreload.iter_all_python_module_files",
+        return_value=frozenset(),
     )
     def test_overlapping_globs(self, mocked_modules, notify_mock):
         self.reloader.watch_dir(self.tempdir, "*.py")
@@ -616,7 +619,8 @@ class IntegrationTests:
 
     @mock.patch("thibaud.utils.autoreload.BaseReloader.notify_file_changed")
     @mock.patch(
-        "thibaud.utils.autoreload.iter_all_python_module_files", return_value=frozenset()
+        "thibaud.utils.autoreload.iter_all_python_module_files",
+        return_value=frozenset(),
     )
     def test_glob_recursive(self, mocked_modules, notify_mock):
         non_py_file = self.ensure_file(self.tempdir / "dir" / "non_py_file")
@@ -630,7 +634,8 @@ class IntegrationTests:
 
     @mock.patch("thibaud.utils.autoreload.BaseReloader.notify_file_changed")
     @mock.patch(
-        "thibaud.utils.autoreload.iter_all_python_module_files", return_value=frozenset()
+        "thibaud.utils.autoreload.iter_all_python_module_files",
+        return_value=frozenset(),
     )
     def test_multiple_recursive_globs(self, mocked_modules, notify_mock):
         non_py_file = self.ensure_file(self.tempdir / "dir" / "test.txt")
@@ -647,7 +652,8 @@ class IntegrationTests:
 
     @mock.patch("thibaud.utils.autoreload.BaseReloader.notify_file_changed")
     @mock.patch(
-        "thibaud.utils.autoreload.iter_all_python_module_files", return_value=frozenset()
+        "thibaud.utils.autoreload.iter_all_python_module_files",
+        return_value=frozenset(),
     )
     def test_nested_glob_recursive(self, mocked_modules, notify_mock):
         inner_py_file = self.ensure_file(self.tempdir / "dir" / "file.py")
@@ -660,7 +666,8 @@ class IntegrationTests:
 
     @mock.patch("thibaud.utils.autoreload.BaseReloader.notify_file_changed")
     @mock.patch(
-        "thibaud.utils.autoreload.iter_all_python_module_files", return_value=frozenset()
+        "thibaud.utils.autoreload.iter_all_python_module_files",
+        return_value=frozenset(),
     )
     def test_overlapping_glob_recursive(self, mocked_modules, notify_mock):
         py_file = self.ensure_file(self.tempdir / "dir" / "file.py")
@@ -742,7 +749,9 @@ class WatchmanReloaderTests(ReloaderTests, IntegrationTests):
     def setUp(self):
         super().setUp()
         # Shorten the timeout to speed up tests.
-        self.reloader.client_timeout = int(os.environ.get("THIBAUD_WATCHMAN_TIMEOUT", 2))
+        self.reloader.client_timeout = int(
+            os.environ.get("THIBAUD_WATCHMAN_TIMEOUT", 2)
+        )
 
     def test_watch_glob_ignores_non_existing_directories_two_levels(self):
         with mock.patch.object(self.reloader, "_subscribe") as mocked_subscribe:

@@ -4,7 +4,10 @@ from importlib import import_module
 
 from thibaud.apps import apps
 from thibaud.core.management.base import BaseCommand, CommandError, no_translations
-from thibaud.core.management.sql import emit_post_migrate_signal, emit_pre_migrate_signal
+from thibaud.core.management.sql import (
+    emit_post_migrate_signal,
+    emit_pre_migrate_signal,
+)
 from thibaud.db import DEFAULT_DB_ALIAS, connections, router
 from thibaud.db.migrations.autodetector import MigrationAutodetector
 from thibaud.db.migrations.executor import MigrationExecutor

@@ -1,7 +1,9 @@
 from functools import lru_cache
 
 from thibaud.db.backends.base.base import NO_DB_ALIAS
-from thibaud.db.backends.postgresql.base import DatabaseWrapper as PsycopgDatabaseWrapper
+from thibaud.db.backends.postgresql.base import (
+    DatabaseWrapper as PsycopgDatabaseWrapper,
+)
 from thibaud.db.backends.postgresql.features import (
     DatabaseFeatures as PsycopgDatabaseFeatures,
 )

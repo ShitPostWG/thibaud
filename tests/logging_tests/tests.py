@@ -7,7 +7,11 @@ from admin_scripts.tests import AdminScriptTestCase
 
 from thibaud.conf import settings
 from thibaud.core import mail
-from thibaud.core.exceptions import DisallowedHost, PermissionDenied, SuspiciousOperation
+from thibaud.core.exceptions import (
+    DisallowedHost,
+    PermissionDenied,
+    SuspiciousOperation,
+)
 from thibaud.core.files.temp import NamedTemporaryFile
 from thibaud.core.management import color
 from thibaud.http.multipartparser import MultiPartParserError

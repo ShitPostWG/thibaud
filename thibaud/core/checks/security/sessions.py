@@ -92,7 +92,9 @@ def check_session_cookie_httponly(app_configs, **kwargs):
 
 
 def _session_middleware():
-    return "thibaud.contrib.sessions.middleware.SessionMiddleware" in settings.MIDDLEWARE
+    return (
+        "thibaud.contrib.sessions.middleware.SessionMiddleware" in settings.MIDDLEWARE
+    )
 
 
 def _session_app():

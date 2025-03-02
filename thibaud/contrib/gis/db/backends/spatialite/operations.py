@@ -101,7 +101,9 @@ class SpatiaLiteOperations(BaseSpatialOperations, DatabaseOperations):
                 % (self.connection.settings_dict["NAME"],)
             ) from exc
         if version < (4, 3, 0):
-            raise ImproperlyConfigured("GeoThibaud supports SpatiaLite 4.3.0 and above.")
+            raise ImproperlyConfigured(
+                "GeoThibaud supports SpatiaLite 4.3.0 and above."
+            )
         return version
 
     def convert_extent(self, box):

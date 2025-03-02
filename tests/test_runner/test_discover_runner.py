@@ -201,7 +201,9 @@ class DiscoverRunnerTests(SimpleTestCase):
         count = (
             DiscoverRunner(verbosity=0)
             .build_suite(
-                ["test_runner_apps.sample.tests_sample.TestThibaudTestCase.test_sample"],
+                [
+                    "test_runner_apps.sample.tests_sample.TestThibaudTestCase.test_sample"
+                ],
             )
             .countTestCases()
         )

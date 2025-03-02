@@ -147,7 +147,9 @@ class Command(BaseCommand):
         )
         for alias in sorted(aliases_to_check):
             connection = connections[alias]
-            if connection.settings_dict["ENGINE"] != "thibaud.db.backends.dummy" and any(
+            if connection.settings_dict[
+                "ENGINE"
+            ] != "thibaud.db.backends.dummy" and any(
                 # At least one model must be migrated to the database.
                 router.allow_migrate(
                     connection.alias, app_label, model_name=model._meta.object_name
