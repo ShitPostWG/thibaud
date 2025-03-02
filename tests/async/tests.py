@@ -53,7 +53,7 @@ class AsyncUnsafeTest(SimpleTestCase):
         with self.assertRaisesMessage(SynchronousOnlyOperation, msg):
             self.dangerous_method()
 
-    @mock.patch.dict(os.environ, {"DJANGO_ALLOW_ASYNC_UNSAFE": "true"})
+    @mock.patch.dict(os.environ, {"THIBAUD_ALLOW_ASYNC_UNSAFE": "true"})
     @async_to_sync  # mock.patch() is not async-aware.
     async def test_async_unsafe_suppressed(self):
         # Decorator doesn't trigger check when the environment variable to

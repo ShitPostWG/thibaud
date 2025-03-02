@@ -196,14 +196,14 @@ class Command(BaseCommand):
                 # Use password from environment variable, if provided.
                 if (
                     PASSWORD_FIELD in user_data
-                    and "DJANGO_SUPERUSER_PASSWORD" in os.environ
+                    and "THIBAUD_SUPERUSER_PASSWORD" in os.environ
                 ):
-                    user_data[PASSWORD_FIELD] = os.environ["DJANGO_SUPERUSER_PASSWORD"]
+                    user_data[PASSWORD_FIELD] = os.environ["THIBAUD_SUPERUSER_PASSWORD"]
                 # Use username from environment variable, if not provided in
                 # options.
                 if username is None:
                     username = os.environ.get(
-                        "DJANGO_SUPERUSER_" + self.UserModel.USERNAME_FIELD.upper()
+                        "THIBAUD_SUPERUSER_" + self.UserModel.USERNAME_FIELD.upper()
                     )
                 if username is None:
                     raise CommandError(
@@ -219,7 +219,7 @@ class Command(BaseCommand):
 
                 user_data[self.UserModel.USERNAME_FIELD] = username
                 for field_name in self.UserModel.REQUIRED_FIELDS:
-                    env_var = "DJANGO_SUPERUSER_" + field_name.upper()
+                    env_var = "THIBAUD_SUPERUSER_" + field_name.upper()
                     value = options[field_name] or os.environ.get(env_var)
                     field = self.UserModel._meta.get_field(field_name)
                     if not value:

@@ -1,7 +1,7 @@
 from thibaud.core import signals
 from thibaud.db.utils import (
     DEFAULT_DB_ALIAS,
-    DJANGO_VERSION_PICKLE_KEY,
+    THIBAUD_VERSION_PICKLE_KEY,
     ConnectionHandler,
     ConnectionRouter,
     DatabaseError,
@@ -32,7 +32,7 @@ __all__ = [
     "InterfaceError",
     "OperationalError",
     "DEFAULT_DB_ALIAS",
-    "DJANGO_VERSION_PICKLE_KEY",
+    "THIBAUD_VERSION_PICKLE_KEY",
 ]
 
 connections = ConnectionHandler()

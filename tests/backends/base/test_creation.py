@@ -145,7 +145,7 @@ class TestDbCreationTests(SimpleTestCase):
             with mock.patch.object(creation, "_destroy_test_db"):
                 creation.destroy_test_db(old_database_name, verbosity=0)
 
-    @mock.patch.dict(os.environ, {"RUNNING_DJANGOS_TEST_SUITE": ""})
+    @mock.patch.dict(os.environ, {"RUNNING_THIBAUDS_TEST_SUITE": ""})
     @mock.patch("thibaud.db.migrations.executor.MigrationExecutor.migrate")
     @mock.patch.object(BaseDatabaseCreation, "mark_expected_failures_and_skips")
     def test_mark_expected_failures_and_skips_call(
@@ -153,7 +153,7 @@ class TestDbCreationTests(SimpleTestCase):
     ):
         """
         mark_expected_failures_and_skips() isn't called unless
-        RUNNING_DJANGOS_TEST_SUITE is 'true'.
+        RUNNING_THIBAUDS_TEST_SUITE is 'true'.
         """
         test_connection = get_connection_copy()
         creation = test_connection.creation_class(test_connection)

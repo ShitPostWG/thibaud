@@ -20,7 +20,7 @@ def async_unsafe(message):
             except RuntimeError:
                 pass
             else:
-                if not os.environ.get("DJANGO_ALLOW_ASYNC_UNSAFE"):
+                if not os.environ.get("THIBAUD_ALLOW_ASYNC_UNSAFE"):
                     raise SynchronousOnlyOperation(message)
             # Pass onward.
             return func(*args, **kwargs)

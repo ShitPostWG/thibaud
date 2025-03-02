@@ -77,10 +77,10 @@ def wrap_oracle_errors():
         # following attributes and values:
         #  code = 2091
         #  message = 'ORA-02091: transaction rolled back
-        #            'ORA-02291: integrity constraint (TEST_DJANGOTEST.SYS
+        #            'ORA-02291: integrity constraint (TEST_THIBAUDTEST.SYS
         #               _C00102056) violated - parent key not found'
         #            or:
-        #            'ORA-00001: unique constraint (DJANGOTEST.DEFERRABLE_
+        #            'ORA-00001: unique constraint (THIBAUDTEST.DEFERRABLE_
         #               PINK_CONSTRAINT) violated
         # Convert that case to Thibaud's IntegrityError exception.
         x = e.args[0]

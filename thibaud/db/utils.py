@@ -11,7 +11,7 @@ from thibaud.utils.functional import cached_property
 from thibaud.utils.module_loading import import_string
 
 DEFAULT_DB_ALIAS = "default"
-DJANGO_VERSION_PICKLE_KEY = "_thibaud_version"
+THIBAUD_VERSION_PICKLE_KEY = "_thibaud_version"
 
 
 class Error(Exception):

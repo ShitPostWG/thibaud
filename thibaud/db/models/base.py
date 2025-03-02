@@ -20,7 +20,7 @@ from thibaud.core.exceptions import (
     ValidationError,
 )
 from thibaud.db import (
-    DJANGO_VERSION_PICKLE_KEY,
+    THIBAUD_VERSION_PICKLE_KEY,
     DatabaseError,
     connection,
     connections,
@@ -608,7 +608,7 @@ class Model(AltersData, metaclass=ModelBase):
 
     def __reduce__(self):
         data = self.__getstate__()
-        data[DJANGO_VERSION_PICKLE_KEY] = thibaud.__version__
+        data[THIBAUD_VERSION_PICKLE_KEY] = thibaud.__version__
         class_id = self._meta.app_label, self._meta.object_name
         return model_unpickle, (class_id,), data
 
@@ -630,7 +630,7 @@ class Model(AltersData, metaclass=ModelBase):
         return state
 
     def __setstate__(self, state):
-        pickled_version = state.get(DJANGO_VERSION_PICKLE_KEY)
+        pickled_version = state.get(THIBAUD_VERSION_PICKLE_KEY)
         if pickled_version:
             if pickled_version != thibaud.__version__:
                 warnings.warn(

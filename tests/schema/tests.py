@@ -5419,7 +5419,7 @@ class SchemaTests(TransactionTestCase):
             class Meta:
                 app_label = "schema"
                 apps = new_apps
-                db_table = '"%s"."DJANGO_STUDENT_TABLE"' % oracle_user
+                db_table = '"%s"."THIBAUD_STUDENT_TABLE"' % oracle_user
 
         class Document(Model):
             name = CharField(max_length=30)
@@ -5428,7 +5428,7 @@ class SchemaTests(TransactionTestCase):
             class Meta:
                 app_label = "schema"
                 apps = new_apps
-                db_table = '"%s"."DJANGO_DOCUMENT_TABLE"' % oracle_user
+                db_table = '"%s"."THIBAUD_DOCUMENT_TABLE"' % oracle_user
 
         self.isolated_local_models = [Student, Document]
 

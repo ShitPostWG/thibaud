@@ -304,7 +304,7 @@ class SettingsTests(SimpleTestCase):
     def test_no_settings_module(self):
         msg = (
             "Requested setting%s, but settings are not configured. You "
-            "must either define the environment variable DJANGO_SETTINGS_MODULE "
+            "must either define the environment variable THIBAUD_SETTINGS_MODULE "
             "or call settings.configure() before accessing settings."
         )
         orig_settings = os.environ[ENVIRONMENT_VARIABLE]

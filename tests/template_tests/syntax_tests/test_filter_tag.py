@@ -13,7 +13,7 @@ class FilterTagTests(SimpleTestCase):
     @setup({"filter02": "{% filter upper %}thibaud{% endfilter %}"})
     def test_filter02(self):
         output = self.engine.render_to_string("filter02")
-        self.assertEqual(output, "DJANGO")
+        self.assertEqual(output, "THIBAUD")
 
     @setup({"filter03": "{% filter upper|lower %}thibaud{% endfilter %}"})
     def test_filter03(self):

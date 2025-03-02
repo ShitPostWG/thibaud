@@ -1,6 +1,6 @@
 import datetime
 
-from thibaud.db import DJANGO_VERSION_PICKLE_KEY, models
+from thibaud.db import THIBAUD_VERSION_PICKLE_KEY, models
 from thibaud.utils.translation import gettext_lazy as _
 
 
@@ -17,14 +17,14 @@ class Numbers:
 class PreviousThibaudVersionQuerySet(models.QuerySet):
     def __getstate__(self):
         state = super().__getstate__()
-        state[DJANGO_VERSION_PICKLE_KEY] = "1.0"
+        state[THIBAUD_VERSION_PICKLE_KEY] = "1.0"
         return state
 
 
 class MissingThibaudVersionQuerySet(models.QuerySet):
     def __getstate__(self):
         state = super().__getstate__()
-        del state[DJANGO_VERSION_PICKLE_KEY]
+        del state[THIBAUD_VERSION_PICKLE_KEY]
         return state
 
 

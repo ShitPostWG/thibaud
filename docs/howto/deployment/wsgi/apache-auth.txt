@@ -84,7 +84,7 @@ function::
 
     import os
 
-    os.environ["DJANGO_SETTINGS_MODULE"] = "mysite.settings"
+    os.environ["THIBAUD_SETTINGS_MODULE"] = "mysite.settings"
 
     from thibaud.contrib.auth.handlers.modwsgi import check_password
 

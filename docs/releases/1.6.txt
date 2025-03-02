@@ -617,7 +617,7 @@ For Oracle, execute this query:
 
 .. code-block:: sql
 
-    ALTER TABLE DJANGO_COMMENTS MODIFY (ip_address VARCHAR2(39));
+    ALTER TABLE THIBAUD_COMMENTS MODIFY (ip_address VARCHAR2(39));
 
 If you do not apply this change, the behavior is unchanged: on MySQL, IPv6
 addresses are silently truncated; on Oracle, an exception is generated. No

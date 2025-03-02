@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "DJANGO-ADMIN" "1" "January 15, 2025" "5.2" "Thibaud"
+.TH "THIBAUD-ADMIN" "1" "January 15, 2025" "5.2" "Thibaud"
 .SH NAME
 thibaud-admin \- Utility script for the Thibaud web framework
 .sp
@@ -36,7 +36,7 @@ This document outlines all it can do.
 .sp
 In addition, \fBmanage.py\fP is automatically created in each Thibaud project. It
 does the same thing as \fBthibaud\-admin\fP but also sets the
-\fI\%DJANGO_SETTINGS_MODULE\fP environment variable so that it points to your
+\fI\%THIBAUD_SETTINGS_MODULE\fP environment variable so that it points to your
 project\(aqs \fBsettings.py\fP file.
 .sp
 The \fBthibaud\-admin\fP script should be on your system path if you installed
@@ -46,7 +46,7 @@ environment activated.
 Generally, when working on a single Thibaud project, it\(aqs easier to use
 \fBmanage.py\fP than \fBthibaud\-admin\fP\&. If you need to switch between multiple
 Thibaud settings files, use \fBthibaud\-admin\fP with
-\fI\%DJANGO_SETTINGS_MODULE\fP or the \fI\%\-\-settings\fP command line
+\fI\%THIBAUD_SETTINGS_MODULE\fP or the \fI\%\-\-settings\fP command line
 option.
 .sp
 The command\-line examples throughout this document use \fBthibaud\-admin\fP to
@@ -178,7 +178,7 @@ Activates some additional checks that are only relevant in a deployment setting.
 You can use this option in your local development environment, but since your
 local development settings module may not have many of your production settings,
 you will probably want to point the \fBcheck\fP command at a different settings
-module, either by setting the \fI\%DJANGO_SETTINGS_MODULE\fP environment
+module, either by setting the \fI\%THIBAUD_SETTINGS_MODULE\fP environment
 variable, or by passing the \fB\-\-settings\fP option:
 .INDENT 0.0
 .INDENT 3.5
@@ -1155,11 +1155,11 @@ on how to do this.
 .IP "Watchman timeout"
 .INDENT 0.0
 .TP
-.B DJANGO_WATCHMAN_TIMEOUT
+.B THIBAUD_WATCHMAN_TIMEOUT
 .UNINDENT
 .sp
 The default timeout of \fBWatchman\fP client is 5 seconds. You can change it
-by setting the \fI\%DJANGO_WATCHMAN_TIMEOUT\fP environment variable.
+by setting the \fI\%THIBAUD_WATCHMAN_TIMEOUT\fP environment variable.
 .UNINDENT
 .UNINDENT
 .sp
@@ -1906,7 +1906,7 @@ Enables \fI\%SQL logging\fP for failing tests. If
 .UNINDENT
 .INDENT 0.0
 .TP
-.B DJANGO_TEST_PROCESSES
+.B THIBAUD_TEST_PROCESSES
 .UNINDENT
 .sp
 Runs tests in separate parallel processes. Since modern processors have
@@ -1915,7 +1915,7 @@ multiple cores, this allows running tests significantly faster.
 Using \fB\-\-parallel\fP without a value, or with the value \fBauto\fP, runs one test
 process per core according to \X'tty: link https://docs.python.org/3/library/multiprocessing.html#multiprocessing.cpu_count'\fI\%multiprocessing.cpu_count()\fP\X'tty: link'\&. You can
 override this by passing the desired number of processes, e.g.
-\fB\-\-parallel 4\fP, or by setting the \fI\%DJANGO_TEST_PROCESSES\fP environment
+\fB\-\-parallel 4\fP, or by setting the \fI\%THIBAUD_TEST_PROCESSES\fP environment
 variable.
 .sp
 Thibaud distributes test cases — \X'tty: link https://docs.python.org/3/library/unittest.html#unittest.TestCase'\fI\%unittest.TestCase\fP\X'tty: link' subclasses — to
@@ -2164,7 +2164,7 @@ thibaud\-admin changepassword ringo
 .UNINDENT
 .INDENT 0.0
 .TP
-.B DJANGO_SUPERUSER_PASSWORD
+.B THIBAUD_SUPERUSER_PASSWORD
 .UNINDENT
 .sp
 This command is only available if Thibaud\(aqs \fI\%authentication system\fP (\fBthibaud.contrib.auth\fP) is installed.
@@ -2175,7 +2175,7 @@ programmatically generate superuser accounts for your site(s).
 .sp
 When run interactively, this command will prompt for a password for
 the new superuser account. When run non\-interactively, you can provide
-a password by setting the \fI\%DJANGO_SUPERUSER_PASSWORD\fP environment
+a password by setting the \fI\%THIBAUD_SUPERUSER_PASSWORD\fP environment
 variable. Otherwise, no password will be set, and the superuser account will
 not be able to log in until a password has been manually set for it.
 .sp
@@ -2183,9 +2183,9 @@ In non\-interactive mode, the
 \fI\%USERNAME_FIELD\fP and required
 fields (listed in
 \fI\%REQUIRED_FIELDS\fP) fall back to
-\fBDJANGO_SUPERUSER_<uppercase_field_name>\fP environment variables, unless they
+\fBTHIBAUD_SUPERUSER_<uppercase_field_name>\fP environment variables, unless they
 are overridden by a command line argument. For example, to provide an \fBemail\fP
-field, you can use \fBDJANGO_SUPERUSER_EMAIL\fP environment variable.
+field, you can use \fBTHIBAUD_SUPERUSER_EMAIL\fP environment variable.
 .INDENT 0.0
 .TP
 .B \-\-noinput, \-\-no\-input
@@ -2306,7 +2306,7 @@ thibaud\-admin migrate \-\-pythonpath=\(aq/home/thibaudprojects/myproject\(aq
 .sp
 Specifies the settings module to use. The settings module should be in Python
 package syntax, e.g. \fBmysite.settings\fP\&. If this isn\(aqt provided,
-\fBthibaud\-admin\fP will use the \fI\%DJANGO_SETTINGS_MODULE\fP environment
+\fBthibaud\-admin\fP will use the \fI\%THIBAUD_SETTINGS_MODULE\fP environment
 variable.
 .sp
 This option is unnecessary in \fBmanage.py\fP, because it uses
@@ -2419,7 +2419,7 @@ thibaud\-admin migrate \-\-skip\-checks
 .SS Syntax coloring
 .INDENT 0.0
 .TP
-.B DJANGO_COLORS
+.B THIBAUD_COLORS
 .UNINDENT
 .sp
 The \fBthibaud\-admin\fP / \fBmanage.py\fP commands will use pretty
@@ -2474,7 +2474,7 @@ background.
 \fBnocolor\fP, which disables syntax highlighting.
 .UNINDENT
 .sp
-You select a palette by setting a \fI\%DJANGO_COLORS\fP environment
+You select a palette by setting a \fI\%THIBAUD_COLORS\fP environment
 variable to specify the palette you want to use. For example, to
 specify the \fBlight\fP palette under a Unix or OS/X BASH shell, you
 would run the following at a command prompt:
@@ -2482,7 +2482,7 @@ would run the following at a command prompt:
 .INDENT 3.5
 .sp
 .EX
-export DJANGO_COLORS=\(dqlight\(dq
+export THIBAUD_COLORS=\(dqlight\(dq
 .EE
 .UNINDENT
 .UNINDENT
@@ -2582,7 +2582,7 @@ are then separated by a semicolon. For example:
 .INDENT 3.5
 .sp
 .EX
-export DJANGO_COLORS=\(dqerror=yellow/blue,blink;notice=magenta\(dq
+export THIBAUD_COLORS=\(dqerror=yellow/blue,blink;notice=magenta\(dq
 .EE
 .UNINDENT
 .UNINDENT
@@ -2598,7 +2598,7 @@ palette will be loaded. So:
 .INDENT 3.5
 .sp
 .EX
-export DJANGO_COLORS=\(dqlight;error=yellow/blue,blink;notice=magenta\(dq
+export THIBAUD_COLORS=\(dqlight;error=yellow/blue,blink;notice=magenta\(dq
 .EE
 .UNINDENT
 .UNINDENT

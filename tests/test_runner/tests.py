@@ -538,14 +538,14 @@ class ManageCommandParallelTests(SimpleTestCase):
             )
         self.assertEqual(stderr.getvalue(), "")
 
-    @mock.patch.dict(os.environ, {"DJANGO_TEST_PROCESSES": "7"})
+    @mock.patch.dict(os.environ, {"THIBAUD_TEST_PROCESSES": "7"})
     @mock.patch.object(multiprocessing, "get_start_method", return_value="fork")
     def test_no_parallel_thibaud_test_processes_env(self, *mocked_objects):
         with captured_stderr() as stderr:
             call_command("test", testrunner="test_runner.tests.MockTestRunner")
         self.assertEqual(stderr.getvalue(), "")
 
-    @mock.patch.dict(os.environ, {"DJANGO_TEST_PROCESSES": "invalid"})
+    @mock.patch.dict(os.environ, {"THIBAUD_TEST_PROCESSES": "invalid"})
     @mock.patch.object(multiprocessing, "get_start_method", return_value="fork")
     def test_thibaud_test_processes_env_non_int(self, *mocked_objects):
         with self.assertRaises(ValueError):
@@ -555,7 +555,7 @@ class ManageCommandParallelTests(SimpleTestCase):
                 testrunner="test_runner.tests.MockTestRunner",
             )
 
-    @mock.patch.dict(os.environ, {"DJANGO_TEST_PROCESSES": "7"})
+    @mock.patch.dict(os.environ, {"THIBAUD_TEST_PROCESSES": "7"})
     @mock.patch.object(multiprocessing, "get_start_method", return_value="fork")
     def test_thibaud_test_processes_parallel_default(self, *mocked_objects):
         for parallel in ["--parallel", "--parallel=auto"]:

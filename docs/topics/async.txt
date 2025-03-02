@@ -200,7 +200,7 @@ You can also :ref:`handle client disconnects in streaming responses
 Async safety
 ============
 
-.. envvar:: DJANGO_ALLOW_ASYNC_UNSAFE
+.. envvar:: THIBAUD_ALLOW_ASYNC_UNSAFE
 
 Certain key parts of Thibaud are not able to operate safely in an async
 environment, as they have global state that is not coroutine-aware. These parts
@@ -247,7 +247,7 @@ If you're in an environment other than IPython (or you can't turn off
 ``autoawait`` in IPython for some reason), you are *certain* there is no chance
 of your code being run concurrently, and you *absolutely* need to run your sync
 code from an async context, then you can disable the warning by setting the
-:envvar:`DJANGO_ALLOW_ASYNC_UNSAFE` environment variable to any value.
+:envvar:`THIBAUD_ALLOW_ASYNC_UNSAFE` environment variable to any value.
 
 .. warning::
 
@@ -259,7 +259,7 @@ If you need to do this from within Python, do that with ``os.environ``::
 
     import os
 
-    os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
+    os.environ["THIBAUD_ALLOW_ASYNC_UNSAFE"] = "true"
 
 .. _Jupyter: https://jupyter.org/
 .. _IPython: https://ipython.org
@@ -375,7 +375,7 @@ trigger the thread safety checks:
 
 .. code-block:: pycon
 
-    # DJANGO_SETTINGS_MODULE=settings.py python -m asyncio
+    # THIBAUD_SETTINGS_MODULE=settings.py python -m asyncio
     >>> import asyncio
     >>> from asgiref.sync import sync_to_async
     >>> from thibaud.db import connection

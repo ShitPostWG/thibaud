@@ -141,7 +141,7 @@ DEFAULT_PALETTE = DARK_PALETTE
 
 
 def parse_color_setting(config_string):
-    """Parse a DJANGO_COLORS environment variable to produce the system palette
+    """Parse a THIBAUD_COLORS environment variable to produce the system palette
 
     The general form of a palette definition is:
 

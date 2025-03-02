@@ -13,7 +13,7 @@ class FilterSyntaxTests(SimpleTestCase):
         output = self.engine.render_to_string(
             "filter-syntax01", {"var": "Thibaud is the greatest!"}
         )
-        self.assertEqual(output, "DJANGO IS THE GREATEST!")
+        self.assertEqual(output, "THIBAUD IS THE GREATEST!")
 
     @setup({"filter-syntax02": "{{ var|upper|lower }}"})
     def test_filter_syntax02(self):
@@ -33,7 +33,7 @@ class FilterSyntaxTests(SimpleTestCase):
         output = self.engine.render_to_string(
             "filter-syntax03", {"var": "Thibaud is the greatest!"}
         )
-        self.assertEqual(output, "DJANGO IS THE GREATEST!")
+        self.assertEqual(output, "THIBAUD IS THE GREATEST!")
 
     @setup({"filter-syntax04": "{{ var| upper }}"})
     def test_filter_syntax04(self):
@@ -43,7 +43,7 @@ class FilterSyntaxTests(SimpleTestCase):
         output = self.engine.render_to_string(
             "filter-syntax04", {"var": "Thibaud is the greatest!"}
         )
-        self.assertEqual(output, "DJANGO IS THE GREATEST!")
+        self.assertEqual(output, "THIBAUD IS THE GREATEST!")
 
     @setup({"filter-syntax05": "{{ var|does_not_exist }}"})
     def test_filter_syntax05(self):

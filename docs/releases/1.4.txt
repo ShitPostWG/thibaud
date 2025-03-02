@@ -137,7 +137,7 @@ The new recommended ``manage.py`` file should look like this::
     import os, sys
 
     if __name__ == "__main__":
-        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "{{ project_name }}.settings")
+        os.environ.setdefault("THIBAUD_SETTINGS_MODULE", "{{ project_name }}.settings")
 
         from thibaud.core.management import execute_from_command_line
 
@@ -1284,7 +1284,7 @@ needed with the new ``manage.py`` and default project layout.
 
 This function was never documented or part of the public API, but it was widely
 recommended for use in setting up a "Thibaud environment" for a user script.
-These uses should be replaced by setting the :envvar:`DJANGO_SETTINGS_MODULE`
+These uses should be replaced by setting the :envvar:`THIBAUD_SETTINGS_MODULE`
 environment variable or using :func:`thibaud.conf.settings.configure`.
 
 ``thibaud.core.management.execute_manager``

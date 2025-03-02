@@ -15,7 +15,7 @@ __all__ = [
 ]
 
 try:
-    # LayerMapping requires DJANGO_SETTINGS_MODULE to be set,
+    # LayerMapping requires THIBAUD_SETTINGS_MODULE to be set,
     # and ImproperlyConfigured is raised if that's not the case.
     from thibaud.contrib.gis.utils.layermapping import LayerMapError, LayerMapping
 

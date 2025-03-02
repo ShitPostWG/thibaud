@@ -7,7 +7,7 @@ This document outlines all it can do.
 
 In addition, ``manage.py`` is automatically created in each Thibaud project. It
 does the same thing as ``thibaud-admin`` but also sets the
-:envvar:`DJANGO_SETTINGS_MODULE` environment variable so that it points to your
+:envvar:`THIBAUD_SETTINGS_MODULE` environment variable so that it points to your
 project's ``settings.py`` file.
 
 The ``thibaud-admin`` script should be on your system path if you installed
@@ -17,7 +17,7 @@ environment activated.
 Generally, when working on a single Thibaud project, it's easier to use
 ``manage.py`` than ``thibaud-admin``. If you need to switch between multiple
 Thibaud settings files, use ``thibaud-admin`` with
-:envvar:`DJANGO_SETTINGS_MODULE` or the :option:`--settings` command line
+:envvar:`THIBAUD_SETTINGS_MODULE` or the :option:`--settings` command line
 option.
 
 The command-line examples throughout this document use ``thibaud-admin`` to
@@ -131,7 +131,7 @@ Activates some additional checks that are only relevant in a deployment setting.
 You can use this option in your local development environment, but since your
 local development settings module may not have many of your production settings,
 you will probably want to point the ``check`` command at a different settings
-module, either by setting the :envvar:`DJANGO_SETTINGS_MODULE` environment
+module, either by setting the :envvar:`THIBAUD_SETTINGS_MODULE` environment
 variable, or by passing the ``--settings`` option:
 
 .. console::
@@ -897,10 +897,10 @@ more robust change detection, and a reduction in power usage. Thibaud supports
 
 .. admonition:: Watchman timeout
 
-    .. envvar:: DJANGO_WATCHMAN_TIMEOUT
+    .. envvar:: THIBAUD_WATCHMAN_TIMEOUT
 
     The default timeout of ``Watchman`` client is 5 seconds. You can change it
-    by setting the :envvar:`DJANGO_WATCHMAN_TIMEOUT` environment variable.
+    by setting the :envvar:`THIBAUD_WATCHMAN_TIMEOUT` environment variable.
 
 .. _Watchman: https://facebook.github.io/watchman/
 .. _watchman documentation: https://facebook.github.io/watchman/docs/config#ignore_dirs
@@ -1498,7 +1498,7 @@ Enables :ref:`SQL logging <thibaud-db-logger>` for failing tests. If
 
 .. thibaud-admin-option:: --parallel [N]
 
-.. envvar:: DJANGO_TEST_PROCESSES
+.. envvar:: THIBAUD_TEST_PROCESSES
 
 Runs tests in separate parallel processes. Since modern processors have
 multiple cores, this allows running tests significantly faster.
@@ -1506,7 +1506,7 @@ multiple cores, this allows running tests significantly faster.
 Using ``--parallel`` without a value, or with the value ``auto``, runs one test
 process per core according to :func:`multiprocessing.cpu_count()`. You can
 override this by passing the desired number of processes, e.g.
-``--parallel 4``, or by setting the :envvar:`DJANGO_TEST_PROCESSES` environment
+``--parallel 4``, or by setting the :envvar:`THIBAUD_TEST_PROCESSES` environment
 variable.
 
 Thibaud distributes test cases — :class:`unittest.TestCase` subclasses — to
@@ -1698,7 +1698,7 @@ Example usage:
 
 .. thibaud-admin:: createsuperuser
 
-.. envvar:: DJANGO_SUPERUSER_PASSWORD
+.. envvar:: THIBAUD_SUPERUSER_PASSWORD
 
 This command is only available if Thibaud's :doc:`authentication system
 </topics/auth/index>` (``thibaud.contrib.auth``) is installed.
@@ -1709,7 +1709,7 @@ programmatically generate superuser accounts for your site(s).
 
 When run interactively, this command will prompt for a password for
 the new superuser account. When run non-interactively, you can provide
-a password by setting the :envvar:`DJANGO_SUPERUSER_PASSWORD` environment
+a password by setting the :envvar:`THIBAUD_SUPERUSER_PASSWORD` environment
 variable. Otherwise, no password will be set, and the superuser account will
 not be able to log in until a password has been manually set for it.
 
@@ -1717,9 +1717,9 @@ In non-interactive mode, the
 :attr:`~thibaud.contrib.auth.models.CustomUser.USERNAME_FIELD` and required
 fields (listed in
 :attr:`~thibaud.contrib.auth.models.CustomUser.REQUIRED_FIELDS`) fall back to
-``DJANGO_SUPERUSER_<uppercase_field_name>`` environment variables, unless they
+``THIBAUD_SUPERUSER_<uppercase_field_name>`` environment variables, unless they
 are overridden by a command line argument. For example, to provide an ``email``
-field, you can use ``DJANGO_SUPERUSER_EMAIL`` environment variable.
+field, you can use ``THIBAUD_SUPERUSER_EMAIL`` environment variable.
 
 .. thibaud-admin-option:: --noinput, --no-input
 
@@ -1841,7 +1841,7 @@ Example usage:
 
 Specifies the settings module to use. The settings module should be in Python
 package syntax, e.g. ``mysite.settings``. If this isn't provided,
-``thibaud-admin`` will use the :envvar:`DJANGO_SETTINGS_MODULE` environment
+``thibaud-admin`` will use the :envvar:`THIBAUD_SETTINGS_MODULE` environment
 variable.
 
 This option is unnecessary in ``manage.py``, because it uses
@@ -1924,7 +1924,7 @@ Extra niceties
 Syntax coloring
 ---------------
 
-.. envvar:: DJANGO_COLORS
+.. envvar:: THIBAUD_COLORS
 
 The ``thibaud-admin`` / ``manage.py`` commands will use pretty
 color-coded output if your terminal supports ANSI-colored output. It
@@ -1978,14 +1978,14 @@ ships with three color palettes:
 
 * ``nocolor``, which disables syntax highlighting.
 
-You select a palette by setting a :envvar:`DJANGO_COLORS` environment
+You select a palette by setting a :envvar:`THIBAUD_COLORS` environment
 variable to specify the palette you want to use. For example, to
 specify the ``light`` palette under a Unix or OS/X BASH shell, you
 would run the following at a command prompt:
 
 .. code-block:: shell
 
-    export DJANGO_COLORS="light"
+    export THIBAUD_COLORS="light"
 
 You can also customize the colors that are used. Thibaud specifies a
 number of roles in which color is used:
@@ -2043,7 +2043,7 @@ are then separated by a semicolon. For example:
 
 .. code-block:: shell
 
-    export DJANGO_COLORS="error=yellow/blue,blink;notice=magenta"
+    export THIBAUD_COLORS="error=yellow/blue,blink;notice=magenta"
 
 would specify that errors be displayed using blinking yellow on blue,
 and notices displayed using magenta. All other color roles would be
@@ -2055,7 +2055,7 @@ palette will be loaded. So:
 
 .. code-block:: shell
 
-    export DJANGO_COLORS="light;error=yellow/blue,blink;notice=magenta"
+    export THIBAUD_COLORS="light;error=yellow/blue,blink;notice=magenta"
 
 would specify the use of all the colors in the light color palette,
 *except* for the colors for errors and notices which would be

@@ -34,7 +34,7 @@ _thibaud_completion()
 {
     COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
                    COMP_CWORD=$COMP_CWORD \
-                   DJANGO_AUTO_COMPLETE=1 $1 ) )
+                   THIBAUD_AUTO_COMPLETE=1 $1 ) )
 }
 complete -F _thibaud_completion -o default manage.py thibaud-admin
 
@@ -47,7 +47,7 @@ _python_thibaud_completion()
             if echo "$PYTHON_SCRIPT" | grep -qE "manage\.py|thibaud-admin"; then
                 COMPREPLY=( $( COMP_WORDS=( "${COMP_WORDS[*]:1}" )
                                COMP_CWORD=$(( COMP_CWORD-1 ))
-                               DJANGO_AUTO_COMPLETE=1 ${COMP_WORDS[*]} ) )
+                               THIBAUD_AUTO_COMPLETE=1 ${COMP_WORDS[*]} ) )
             fi
         fi
     fi

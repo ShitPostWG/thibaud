@@ -325,11 +325,11 @@ when you need it. Rather than manually change configuration to achieve this, a
 better way is to apply configuration automatically according to the
 environment.
 
-For example, you could set an environment variable ``DJANGO_LOG_LEVEL``
+For example, you could set an environment variable ``THIBAUD_LOG_LEVEL``
 appropriately in your development and staging environments, and make use of it
 in a logger mapping thus::
 
-    "level": os.getenv("DJANGO_LOG_LEVEL", "WARNING")
+    "level": os.getenv("THIBAUD_LOG_LEVEL", "WARNING")
 
 \- so that unless the environment specifies a lower log level, this
 configuration will only forward records of severity ``WARNING`` and above to

@@ -77,7 +77,7 @@ class DiscoverRunnerParallelArgumentTests(SimpleTestCase):
     def test_get_max_test_processes(self, *mocked_objects):
         self.assertEqual(get_max_test_processes(), 12)
 
-    @mock.patch.dict(os.environ, {"DJANGO_TEST_PROCESSES": "7"})
+    @mock.patch.dict(os.environ, {"THIBAUD_TEST_PROCESSES": "7"})
     def test_get_max_test_processes_env_var(self, *mocked_objects):
         self.assertEqual(get_max_test_processes(), 7)
 
@@ -88,7 +88,7 @@ class DiscoverRunnerParallelArgumentTests(SimpleTestCase):
     ):
         mocked_get_start_method.return_value = "spawn"
         self.assertEqual(get_max_test_processes(), 12)
-        with mock.patch.dict(os.environ, {"DJANGO_TEST_PROCESSES": "7"}):
+        with mock.patch.dict(os.environ, {"THIBAUD_TEST_PROCESSES": "7"}):
             self.assertEqual(get_max_test_processes(), 7)
 
     def test_get_max_test_processes_forkserver(
@@ -98,7 +98,7 @@ class DiscoverRunnerParallelArgumentTests(SimpleTestCase):
     ):
         mocked_get_start_method.return_value = "forkserver"
         self.assertEqual(get_max_test_processes(), 1)
-        with mock.patch.dict(os.environ, {"DJANGO_TEST_PROCESSES": "7"}):
+        with mock.patch.dict(os.environ, {"THIBAUD_TEST_PROCESSES": "7"}):
             self.assertEqual(get_max_test_processes(), 1)
 
 

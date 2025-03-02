@@ -1,6 +1,6 @@
 """
 Default Thibaud settings. Override these with settings in the module pointed to
-by the DJANGO_SETTINGS_MODULE environment variable.
+by the THIBAUD_SETTINGS_MODULE environment variable.
 """
 
 

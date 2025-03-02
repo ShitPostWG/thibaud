@@ -205,7 +205,7 @@ class ClientTest(TestCase):
         "Check the value of HTTP headers returned in a response"
         response = self.client.get("/header_view/")
 
-        self.assertEqual(response.headers["X-DJANGO-TEST"], "Slartibartfast")
+        self.assertEqual(response.headers["X-THIBAUD-TEST"], "Slartibartfast")
 
     def test_response_attached_request(self):
         """

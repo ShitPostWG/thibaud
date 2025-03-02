@@ -109,7 +109,7 @@ Colored terminal output
 A quality-of-life feature adds colored (rather than monochrome) output to the
 terminal. In modern terminals this should work for both CMD and PowerShell. If
 for some reason this needs to be disabled, set the environmental variable
-:envvar:`DJANGO_COLORS` to ``nocolor``.
+:envvar:`THIBAUD_COLORS` to ``nocolor``.
 
 On older Windows versions, or legacy terminals, :pypi:`colorama` 0.4.6+ must be
 installed to enable syntax coloring:

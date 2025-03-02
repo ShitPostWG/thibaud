@@ -8,8 +8,8 @@ from . import PostgreSQLSimpleTestCase
 class PostgresIntegrationTests(PostgreSQLSimpleTestCase):
     def test_check(self):
         test_environ = os.environ.copy()
-        if "DJANGO_SETTINGS_MODULE" in test_environ:
-            del test_environ["DJANGO_SETTINGS_MODULE"]
+        if "THIBAUD_SETTINGS_MODULE" in test_environ:
+            del test_environ["THIBAUD_SETTINGS_MODULE"]
         test_environ["PYTHONPATH"] = os.path.join(os.path.dirname(__file__), "../../")
         result = subprocess.run(
             [

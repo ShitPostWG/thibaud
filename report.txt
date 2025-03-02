@@ -18691,7 +18691,7 @@ Traceback (most recent call last):
     func(self)
     ~~~~^^^^^^
   File "/home/baptiste/Programming/ShitPostWG/thibaud/tests/template_tests/syntax_tests/test_filter_tag.py", line 16, in test_filter02
-    self.assertEqual(output, "DJANGO")
+    self.assertEqual(output, "THIBAUD")
     ^^^^^^^^^^^^^^^
   File "/usr/lib/python3.13/unittest/case.py", line 907, in assertEqual
     assertion_func(first, second, msg=msg)
@@ -18699,7 +18699,7 @@ Traceback (most recent call last):
   File "/usr/lib/python3.13/unittest/case.py", line 900, in _baseAssertEqual
     raise self.failureException(msg)
     ^^^^^^^^^^^
-AssertionError: 'THIBAUD' != 'DJANGO'
+AssertionError: 'THIBAUD' != 'THIBAUD'
 
 ======================================================================
 FAIL: test_filter_syntax01 (template_tests.syntax_tests.test_filter_syntax.FilterSyntaxTests.test_filter_syntax01)
@@ -18721,7 +18721,7 @@ Traceback (most recent call last):
     func(self)
     ~~~~^^^^^^
   File "/home/baptiste/Programming/ShitPostWG/thibaud/tests/template_tests/syntax_tests/test_filter_syntax.py", line 16, in test_filter_syntax01
-    self.assertEqual(output, "DJANGO IS THE GREATEST!")
+    self.assertEqual(output, "THIBAUD IS THE GREATEST!")
     ^^^^^^^^^^^^^^^
   File "/usr/lib/python3.13/unittest/case.py", line 907, in assertEqual
     assertion_func(first, second, msg=msg)
@@ -18729,7 +18729,7 @@ Traceback (most recent call last):
   File "/usr/lib/python3.13/unittest/case.py", line 900, in _baseAssertEqual
     raise self.failureException(msg)
     ^^^^^^^^^^^
-AssertionError: 'THIBAUD IS THE GREATEST!' != 'DJANGO IS THE GREATEST!'
+AssertionError: 'THIBAUD IS THE GREATEST!' != 'THIBAUD IS THE GREATEST!'
 
 ======================================================================
 FAIL: test_filter_syntax03 (template_tests.syntax_tests.test_filter_syntax.FilterSyntaxTests.test_filter_syntax03)
@@ -18751,7 +18751,7 @@ Traceback (most recent call last):
     func(self)
     ~~~~^^^^^^
   File "/home/baptiste/Programming/ShitPostWG/thibaud/tests/template_tests/syntax_tests/test_filter_syntax.py", line 36, in test_filter_syntax03
-    self.assertEqual(output, "DJANGO IS THE GREATEST!")
+    self.assertEqual(output, "THIBAUD IS THE GREATEST!")
     ^^^^^^^^^^^^^^^
   File "/usr/lib/python3.13/unittest/case.py", line 907, in assertEqual
     assertion_func(first, second, msg=msg)
@@ -18759,7 +18759,7 @@ Traceback (most recent call last):
   File "/usr/lib/python3.13/unittest/case.py", line 900, in _baseAssertEqual
     raise self.failureException(msg)
     ^^^^^^^^^^^
-AssertionError: 'THIBAUD IS THE GREATEST!' != 'DJANGO IS THE GREATEST!'
+AssertionError: 'THIBAUD IS THE GREATEST!' != 'THIBAUD IS THE GREATEST!'
 
 ======================================================================
 FAIL: test_filter_syntax04 (template_tests.syntax_tests.test_filter_syntax.FilterSyntaxTests.test_filter_syntax04)
@@ -18781,7 +18781,7 @@ Traceback (most recent call last):
     func(self)
     ~~~~^^^^^^
   File "/home/baptiste/Programming/ShitPostWG/thibaud/tests/template_tests/syntax_tests/test_filter_syntax.py", line 46, in test_filter_syntax04
-    self.assertEqual(output, "DJANGO IS THE GREATEST!")
+    self.assertEqual(output, "THIBAUD IS THE GREATEST!")
     ^^^^^^^^^^^^^^^
   File "/usr/lib/python3.13/unittest/case.py", line 907, in assertEqual
     assertion_func(first, second, msg=msg)
@@ -18789,7 +18789,7 @@ Traceback (most recent call last):
   File "/usr/lib/python3.13/unittest/case.py", line 900, in _baseAssertEqual
     raise self.failureException(msg)
     ^^^^^^^^^^^
-AssertionError: 'THIBAUD IS THE GREATEST!' != 'DJANGO IS THE GREATEST!'
+AssertionError: 'THIBAUD IS THE GREATEST!' != 'THIBAUD IS THE GREATEST!'
 
 ======================================================================
 FAIL: test_load_error_egg (template_tests.test_custom.TemplateTagLoadingTests.test_load_error_egg)

@@ -13,7 +13,7 @@ import thibaud
 from thibaud.conf import settings
 from thibaud.core import exceptions
 from thibaud.db import (
-    DJANGO_VERSION_PICKLE_KEY,
+    THIBAUD_VERSION_PICKLE_KEY,
     IntegrityError,
     NotSupportedError,
     connections,
@@ -334,10 +334,10 @@ class QuerySet(AltersData):
     def __getstate__(self):
         # Force the cache to be fully populated.
         self._fetch_all()
-        return {**self.__dict__, DJANGO_VERSION_PICKLE_KEY: thibaud.__version__}
+        return {**self.__dict__, THIBAUD_VERSION_PICKLE_KEY: thibaud.__version__}
 
     def __setstate__(self, state):
-        pickled_version = state.get(DJANGO_VERSION_PICKLE_KEY)
+        pickled_version = state.get(THIBAUD_VERSION_PICKLE_KEY)
         if pickled_version:
             if pickled_version != thibaud.__version__:
                 warnings.warn(

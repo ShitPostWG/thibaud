@@ -98,7 +98,7 @@ class BaseDatabaseCreation:
         # Ensure a connection for the side effect of initializing the test database.
         self.connection.ensure_connection()
 
-        if os.environ.get("RUNNING_DJANGOS_TEST_SUITE") == "true":
+        if os.environ.get("RUNNING_THIBAUDS_TEST_SUITE") == "true":
             self.mark_expected_failures_and_skips()
 
         return test_database_name

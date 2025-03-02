@@ -83,7 +83,7 @@ class Command(BaseCommand):
             )
 
         basedirs = [os.path.join("conf", "locale"), "locale"]
-        if os.environ.get("DJANGO_SETTINGS_MODULE"):
+        if os.environ.get("THIBAUD_SETTINGS_MODULE"):
             from thibaud.conf import settings
 
             basedirs.extend(settings.LOCALE_PATHS)

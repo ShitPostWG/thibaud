@@ -387,7 +387,7 @@ def get_max_test_processes():
     if multiprocessing.get_start_method() not in {"fork", "spawn"}:
         return 1
     try:
-        return int(os.environ["DJANGO_TEST_PROCESSES"])
+        return int(os.environ["THIBAUD_TEST_PROCESSES"])
     except KeyError:
         return multiprocessing.cpu_count()
 

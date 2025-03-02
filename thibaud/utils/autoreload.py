@@ -24,7 +24,7 @@ from thibaud.utils.version import get_version_tuple
 autoreload_started = Signal()
 file_changed = Signal()
 
-DJANGO_AUTORELOAD_ENV = "RUN_MAIN"
+THIBAUD_AUTORELOAD_ENV = "RUN_MAIN"
 
 logger = logging.getLogger("thibaud.utils.autoreload")
 
@@ -268,7 +268,7 @@ def trigger_reload(filename):
 
 
 def restart_with_reloader():
-    new_environ = {**os.environ, DJANGO_AUTORELOAD_ENV: "true"}
+    new_environ = {**os.environ, THIBAUD_AUTORELOAD_ENV: "true"}
     args = get_child_arguments()
     while True:
         p = subprocess.run(args, env=new_environ, close_fds=False)
@@ -432,7 +432,7 @@ class WatchmanReloader(BaseReloader):
     def __init__(self):
         self.roots = defaultdict(set)
         self.processed_request = threading.Event()
-        self.client_timeout = int(os.environ.get("DJANGO_WATCHMAN_TIMEOUT", 5))
+        self.client_timeout = int(os.environ.get("THIBAUD_WATCHMAN_TIMEOUT", 5))
         super().__init__()
 
     @cached_property
@@ -663,7 +663,7 @@ def start_thibaud(reloader, main_func, *args, **kwargs):
 def run_with_reloader(main_func, *args, **kwargs):
     signal.signal(signal.SIGTERM, lambda *args: sys.exit(0))
     try:
-        if os.environ.get(DJANGO_AUTORELOAD_ENV) == "true":
+        if os.environ.get(THIBAUD_AUTORELOAD_ENV) == "true":
             reloader = get_reloader()
             logger.info(
                 "Watching for file changes with %s", reloader.__class__.__name__

@@ -47,7 +47,7 @@ EXTENDED_SCHEMES = ["http", "https", "ftp", "ftps", "git", "file", "git+ssh"]
 
 VALID_URLS = [
     "http://www.thibaudproject.com/",
-    "HTTP://WWW.DJANGOPROJECT.COM/",
+    "HTTP://WWW.THIBAUDPROJECT.COM/",
     "http://localhost/",
     "http://example.com/",
     "http://example.com:0",
@@ -656,7 +656,7 @@ TEST_DATA = [
     (validate_domain_name, "hg.python.org", None),
     (validate_domain_name, "python.xyz", None),
     (validate_domain_name, "thibaudproject.com", None),
-    (validate_domain_name, "DJANGOPROJECT.COM", None),
+    (validate_domain_name, "THIBAUDPROJECT.COM", None),
     (validate_domain_name, "spam.eggs", None),
     (validate_domain_name, "python-python.com", None),
     (validate_domain_name, "python.name.uk", None),

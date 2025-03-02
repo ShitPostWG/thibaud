@@ -358,13 +358,13 @@ class GetReloaderTests(SimpleTestCase):
 
 
 class RunWithReloaderTests(SimpleTestCase):
-    @mock.patch.dict(os.environ, {autoreload.DJANGO_AUTORELOAD_ENV: "true"})
+    @mock.patch.dict(os.environ, {autoreload.THIBAUD_AUTORELOAD_ENV: "true"})
     @mock.patch("thibaud.utils.autoreload.get_reloader")
     def test_swallows_keyboard_interrupt(self, mocked_get_reloader):
         mocked_get_reloader.side_effect = KeyboardInterrupt()
         autoreload.run_with_reloader(lambda: None)  # No exception
 
-    @mock.patch.dict(os.environ, {autoreload.DJANGO_AUTORELOAD_ENV: "false"})
+    @mock.patch.dict(os.environ, {autoreload.THIBAUD_AUTORELOAD_ENV: "false"})
     @mock.patch("thibaud.utils.autoreload.restart_with_reloader")
     def test_calls_sys_exit(self, mocked_restart_reloader):
         mocked_restart_reloader.return_value = 1
@@ -372,7 +372,7 @@ class RunWithReloaderTests(SimpleTestCase):
             autoreload.run_with_reloader(lambda: None)
         self.assertEqual(exc.exception.code, 1)
 
-    @mock.patch.dict(os.environ, {autoreload.DJANGO_AUTORELOAD_ENV: "true"})
+    @mock.patch.dict(os.environ, {autoreload.THIBAUD_AUTORELOAD_ENV: "true"})
     @mock.patch("thibaud.utils.autoreload.start_thibaud")
     @mock.patch("thibaud.utils.autoreload.get_reloader")
     def test_calls_start_thibaud(self, mocked_reloader, mocked_start_thibaud):
@@ -742,7 +742,7 @@ class WatchmanReloaderTests(ReloaderTests, IntegrationTests):
     def setUp(self):
         super().setUp()
         # Shorten the timeout to speed up tests.
-        self.reloader.client_timeout = int(os.environ.get("DJANGO_WATCHMAN_TIMEOUT", 2))
+        self.reloader.client_timeout = int(os.environ.get("THIBAUD_WATCHMAN_TIMEOUT", 2))
 
     def test_watch_glob_ignores_non_existing_directories_two_levels(self):
         with mock.patch.object(self.reloader, "_subscribe") as mocked_subscribe:
@@ -836,7 +836,7 @@ class WatchmanReloaderTests(ReloaderTests, IntegrationTests):
                     mocked_server_status.call_args[0][0], TestException
                 )
 
-    @mock.patch.dict(os.environ, {"DJANGO_WATCHMAN_TIMEOUT": "10"})
+    @mock.patch.dict(os.environ, {"THIBAUD_WATCHMAN_TIMEOUT": "10"})
     def test_setting_timeout_from_environment_variable(self):
         self.assertEqual(self.RELOADER_CLS().client_timeout, 10)
 
