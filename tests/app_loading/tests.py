@@ -1,8 +1,5 @@
-import os
-
 from thibaud.apps import apps
 from thibaud.test import SimpleTestCase
-from thibaud.test.utils import extend_sys_path
 
 
 class GetModelsTest(SimpleTestCase):

@@ -7,10 +7,9 @@ from unittest import mock
 
 from admin_scripts.tests import AdminScriptTestCase
 
-from thibaud.apps import apps
 from thibaud.core import management
 from thibaud.core.checks import Tags
-from thibaud.core.management import BaseCommand, CommandError, find_commands
+from thibaud.core.management import BaseCommand, CommandError
 from thibaud.core.management.base import OutputWrapper
 from thibaud.core.management.utils import (
     find_command,
@@ -22,7 +21,7 @@ from thibaud.core.management.utils import (
 )
 from thibaud.db import connection
 from thibaud.test import SimpleTestCase, override_settings
-from thibaud.test.utils import captured_stderr, extend_sys_path
+from thibaud.test.utils import captured_stderr
 from thibaud.utils import translation
 
 from .management.commands import dance
