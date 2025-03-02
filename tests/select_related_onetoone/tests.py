@@ -118,7 +118,7 @@ class ReverseSelectRelatedTestCase(TestCase):
                 Product.objects.select_related("image"), key=lambda x: x.name
             )
             self.assertEqual(
-                [p.name for p in result], ["Thibaud Plushie", "Talking Thibaud Plushie"]
+                [p.name for p in result], ["Talking Thibaud Plushie", "Thibaud Plushie"]
             )
 
             self.assertEqual(p1.image, im)

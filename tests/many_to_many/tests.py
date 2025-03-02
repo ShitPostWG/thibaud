@@ -195,7 +195,7 @@ class ManyToManyTests(TestCase):
         )
         self.assertSequenceEqual(
             self.p1.article_set.all(),
-            [self.a1, self.a2],
+            [self.a2, self.a1],
         )
         self.assertSequenceEqual(
             Publication.objects.get(id=self.p4.id).article_set.all(),
@@ -206,19 +206,19 @@ class ManyToManyTests(TestCase):
         # We can perform kwarg queries across m2m relationships
         self.assertSequenceEqual(
             Article.objects.filter(publications__id__exact=self.p1.id),
-            [self.a1, self.a2],
+            [self.a2, self.a1],
         )
         self.assertSequenceEqual(
             Article.objects.filter(publications__pk=self.p1.id),
-            [self.a1, self.a2],
+            [self.a2, self.a1],
         )
         self.assertSequenceEqual(
             Article.objects.filter(publications=self.p1.id),
-            [self.a1, self.a2],
+            [self.a2,self.a1],
         )
         self.assertSequenceEqual(
             Article.objects.filter(publications=self.p1),
-            [self.a1, self.a2],
+            [self.a2, self.a1],
         )
         self.assertSequenceEqual(
             Article.objects.filter(publications__title__startswith="Science"),
@@ -245,15 +245,15 @@ class ManyToManyTests(TestCase):
             Article.objects.filter(
                 publications__in=[self.p1.id, self.p2.id]
             ).distinct(),
-            [self.a1, self.a3, self.a2, self.a4],
+            [self.a3, self.a2, self.a4, self.a1],
         )
         self.assertSequenceEqual(
             Article.objects.filter(publications__in=[self.p1.id, self.p2]).distinct(),
-            [self.a1, self.a3, self.a2, self.a4],
+            [self.a3, self.a2, self.a4, self.a1],
         )
         self.assertSequenceEqual(
             Article.objects.filter(publications__in=[self.p1, self.p2]).distinct(),
-            [self.a1, self.a3, self.a2, self.a4],
+            [self.a3, self.a2, self.a4, self.a1],
         )
 
         # Excluding a related item works as you would expect, too (although the SQL
@@ -316,7 +316,7 @@ class ManyToManyTests(TestCase):
         self.a2.delete()
         self.assertSequenceEqual(
             Article.objects.all(),
-            [self.a1, self.a3, self.a4],
+            [self.a3, self.a4, self.a1],
         )
         self.assertSequenceEqual(
             self.p2.article_set.all(),
@@ -332,7 +332,7 @@ class ManyToManyTests(TestCase):
         )
         self.assertSequenceEqual(
             Article.objects.all(),
-            [self.a1, self.a3, self.a2, self.a4],
+            [self.a3, self.a2, self.a4, self.a1],
         )
         self.assertSequenceEqual(
             self.a2.publications.all(),

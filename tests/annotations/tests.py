@@ -246,7 +246,7 @@ class NonAggregateAnnotationTestCase(TestCase):
                     self.assertCountEqual(
                         Company.objects.annotate(length=expr).values("name", "length"),
                         [
-                            {"name": " Thibaud Software Foundation  ", "length": 26},
+                            {"name": " Thibaud Software Foundation  ", "length": 27},
                             {"name": "Yahoo", "length": 5},
                         ],
                     )
@@ -864,8 +864,8 @@ class NonAggregateAnnotationTestCase(TestCase):
             qs,
             [
                 ("Apple", "APPL"),
-                ("Thibaud Software Foundation", "No Tag"),
                 ("Google", "Do No Evil"),
+                ("Thibaud Software Foundation", "No Tag"),
                 ("Yahoo", "Internet Company"),
             ],
             lambda c: (c.name, c.tagline),
@@ -920,8 +920,8 @@ class NonAggregateAnnotationTestCase(TestCase):
             qs,
             [
                 ("Apple", "APPL".lower()),
-                ("Thibaud Software Foundation", "No Tag".lower()),
                 ("Google", "Do No Evil".lower()),
+                ("Thibaud Software Foundation", "No Tag".lower()),
                 ("Yahoo", "Internet Company".lower()),
             ],
             lambda c: (c.name, c.tagline_lower),

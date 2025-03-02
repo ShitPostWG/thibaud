@@ -29,7 +29,7 @@ class StrIndexTests(TestCase):
         )
         articles = Article.objects.annotate(title_pos=StrIndex("text", "title"))
         self.assertQuerySetEqual(
-            articles.order_by("title"), [15, 0], lambda a: a.title_pos
+            articles.order_by("title"), [0, 15], lambda a: a.title_pos
         )
 
     def test_order_by(self):

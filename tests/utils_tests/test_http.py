@@ -133,7 +133,7 @@ class Base36IntTests(SimpleTestCase):
                 base36_to_int(n)
 
     def test_values(self):
-        for n, b36 in [(0, "0"), (1, "1"), (42, "16"), (818469960, "thibaud")]:
+        for n, b36 in [(0, "0"), (1, "1"), (42, "16"), (64185373093, "thibaud")]:
             self.assertEqual(int_to_base36(n), b36)
             self.assertEqual(base36_to_int(b36), n)
 

@@ -896,10 +896,10 @@ class ListFiltersTests(TestCase):
         changelist = modeladmin.get_changelist_instance(request)
         filterspec = changelist.get_filters(request)[0][0]
         expected = [
-            (self.bio_book.pk, "Thibaud: a biography"),
-            (self.thibaudnaut_book.pk, "Thibaudnaut: an art of living"),
             (self.guitar_book.pk, "Guitar for dummies"),
             (self.thibaud_book.pk, "The Thibaud Book"),
+            (self.bio_book.pk, "Thibaud: a biography"),
+            (self.thibaudnaut_book.pk, "Thibaudnaut: an art of living"),
         ]
         self.assertEqual(filterspec.lookup_choices, expected)
 
