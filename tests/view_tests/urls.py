@@ -49,7 +49,9 @@ urlpatterns = [
     ),
     path(
         "jsi18n_admin/",
-        i18n.JavaScriptCatalog.as_view(packages=["thibaud.contrib.admin", "view_tests"]),
+        i18n.JavaScriptCatalog.as_view(
+            packages=["thibaud.contrib.admin", "view_tests"]
+        ),
     ),
     path("jsi18n_template/", views.jsi18n),
     path("jsi18n_multi_catalogs/", views.jsi18n_multi_catalogs),

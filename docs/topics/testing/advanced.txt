@@ -438,7 +438,7 @@ Let's take a look inside a couple of those files:
     from thibaud.test.utils import get_runner
 
     if __name__ == "__main__":
-        os.environ["DJANGO_SETTINGS_MODULE"] = "tests.test_settings"
+        os.environ["THIBAUD_SETTINGS_MODULE"] = "tests.test_settings"
         thibaud.setup()
         TestRunner = get_runner(settings)
         test_runner = TestRunner()

@@ -1,7 +1,7 @@
 """
 A series of tests to establish that the command-line management tools work as
 advertised - especially with regards to the handling of the
-DJANGO_SETTINGS_MODULE and default settings.py files.
+THIBAUD_SETTINGS_MODULE and default settings.py files.
 """
 
 import os
@@ -128,9 +128,9 @@ class AdminScriptTestCase(SimpleTestCase):
 
         # Set the test environment
         if settings_file:
-            test_environ["DJANGO_SETTINGS_MODULE"] = settings_file
-        elif "DJANGO_SETTINGS_MODULE" in test_environ:
-            del test_environ["DJANGO_SETTINGS_MODULE"]
+            test_environ["THIBAUD_SETTINGS_MODULE"] = settings_file
+        elif "THIBAUD_SETTINGS_MODULE" in test_environ:
+            del test_environ["THIBAUD_SETTINGS_MODULE"]
         python_path = [base_dir, thibaud_dir, tests_dir]
         python_path.extend(ext_backend_base_dirs)
         test_environ["PYTHONPATH"] = os.pathsep.join(python_path)
@@ -198,7 +198,7 @@ class AdminScriptTestCase(SimpleTestCase):
 
 
 ##########################################################################
-# DJANGO ADMIN TESTS
+# THIBAUD ADMIN TESTS
 # This first series of test classes checks the environment processing
 # of the thibaud-admin.
 ##########################################################################

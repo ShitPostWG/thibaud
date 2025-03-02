@@ -254,7 +254,7 @@ logger:
         "loggers": {
             "thibaud": {
                 "handlers": ["console"],
-                "level": os.getenv("DJANGO_LOG_LEVEL", "INFO"),
+                "level": os.getenv("THIBAUD_LOG_LEVEL", "INFO"),
                 "propagate": False,
             },
         },
@@ -265,7 +265,7 @@ By default, this config sends messages from the ``thibaud`` logger of level
 logging config, except that the default config only displays log records when
 ``DEBUG=True``. Thibaud does not log many such ``INFO`` level messages. With
 this config, however, you can also set the environment variable
-``DJANGO_LOG_LEVEL=DEBUG`` to see all of Thibaud's debug logging which is very
+``THIBAUD_LOG_LEVEL=DEBUG`` to see all of Thibaud's debug logging which is very
 verbose as it includes all database queries.
 
 You don't have to log to the console. Here's a configuration which writes all

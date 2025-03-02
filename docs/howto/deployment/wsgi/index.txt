@@ -47,7 +47,7 @@ Configuring the settings module
 When the WSGI server loads your application, Thibaud needs to import the
 settings module — that's where your entire application is defined.
 
-Thibaud uses the :envvar:`DJANGO_SETTINGS_MODULE` environment variable to
+Thibaud uses the :envvar:`THIBAUD_SETTINGS_MODULE` environment variable to
 locate the appropriate settings module. It must contain the dotted path to the
 settings module. You can use a different value for development and production;
 it all depends on how you organize your settings.
@@ -63,7 +63,7 @@ If this variable isn't set, the default :file:`wsgi.py` sets it to
 
     To avoid this problem, use mod_wsgi's daemon mode with each site in its
     own daemon process, or override the value from the environment by
-    enforcing ``os.environ["DJANGO_SETTINGS_MODULE"] = "mysite.settings"`` in
+    enforcing ``os.environ["THIBAUD_SETTINGS_MODULE"] = "mysite.settings"`` in
     your :file:`wsgi.py`.
 
 

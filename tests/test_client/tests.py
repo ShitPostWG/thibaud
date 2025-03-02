@@ -205,7 +205,7 @@ class ClientTest(TestCase):
         "Check the value of HTTP headers returned in a response"
         response = self.client.get("/header_view/")
 
-        self.assertEqual(response.headers["X-DJANGO-TEST"], "Slartibartfast")
+        self.assertEqual(response.headers["X-THIBAUD-TEST"], "Slartibartfast")
 
     def test_response_attached_request(self):
         """
@@ -787,7 +787,9 @@ class ClientTest(TestCase):
         self.client.force_login(self.u1)
         self.assertEqual(self.u1.backend, "thibaud.contrib.auth.backends.ModelBackend")
 
-    @override_settings(SESSION_ENGINE="thibaud.contrib.sessions.backends.signed_cookies")
+    @override_settings(
+        SESSION_ENGINE="thibaud.contrib.sessions.backends.signed_cookies"
+    )
     def test_logout_cookie_sessions(self):
         self.test_logout()
 

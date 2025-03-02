@@ -47,8 +47,8 @@ class TestSigner(SimpleTestCase):
         signer = signing.Signer(key="predictable-secret", algorithm="sha512")
         self.assertEqual(
             signer.signature("hello"),
-            "Usf3uVQOZ9m6uPfVonKR-EBXjPe7bjMbp3_Fq8MfsptgkkM1ojidN0BxYaT5HAEN1"
-            "VzO9_jVu7R-VkqknHYNvw",
+            "2xZfMH7DI_uTqMLV6yMoVTJn9ovmaGywacK7Xdq1zJkTHLBIhe2-nZe3DU3wj35fl"
+            "v-uapPInV_82EB-vTXovA",
         )
 
     def test_invalid_algorithm(self):
@@ -156,7 +156,7 @@ class TestSigner(SimpleTestCase):
 
         s = signing.Signer(key=binary_key)
         self.assertEqual(
-            "foo:EE4qGC5MEKyQG5msxYA0sBohAxLC0BJf8uRhemh0BGU",
+            "foo:3wbJE6DYRrYwr5y4h8mVtDU25ABcmn0v7LAqzhav44o",
             s.sign("foo"),
         )
 
@@ -165,7 +165,7 @@ class TestSigner(SimpleTestCase):
         for sep in separators:
             signer = signing.Signer(key="predictable-secret", sep=sep)
             self.assertEqual(
-                "foo%sjZQoX_FtSO70jX9HLRGg2A_2s4kdDBxz1QoO_OpEQb0" % sep,
+                "foo%scVecNZLm9OdhUA-Og5eXSWfww-k6-oHCBGxznisMR6I" % sep,
                 signer.sign("foo"),
             )
 

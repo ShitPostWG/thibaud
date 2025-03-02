@@ -71,7 +71,9 @@ class PostgresConfigTests(TestCase):
 
         assertNotSerializable()
         import_name = "psycopg.types.range" if is_psycopg3 else "psycopg2.extras"
-        with self.modify_settings(INSTALLED_APPS={"append": "thibaud.contrib.postgres"}):
+        with self.modify_settings(
+            INSTALLED_APPS={"append": "thibaud.contrib.postgres"}
+        ):
             for default, test_field in tests:
                 with self.subTest(default=default):
                     field = test_field(default=default)

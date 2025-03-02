@@ -24,8 +24,8 @@ from thibaud.forms.formsets import (
     formset_factory,
 )
 from thibaud.forms.renderers import (
-    ThibaudTemplates,
     TemplatesSetting,
+    ThibaudTemplates,
     get_default_renderer,
 )
 from thibaud.forms.utils import ErrorList

@@ -108,19 +108,19 @@ The remainder of this documentation shows commands for running tests without
 ``tox``, however, any option passed to ``runtests.py`` can also be passed to
 ``tox`` by prefixing the argument list with ``--``, as above.
 
-``Tox`` also respects the :envvar:`DJANGO_SETTINGS_MODULE` environment
+``Tox`` also respects the :envvar:`THIBAUD_SETTINGS_MODULE` environment
 variable, if set. For example, the following is equivalent to the command
 above:
 
 .. code-block:: console
 
-    $ DJANGO_SETTINGS_MODULE=my_postgres_settings tox -e py312-postgres
+    $ THIBAUD_SETTINGS_MODULE=my_postgres_settings tox -e py312-postgres
 
 Windows users should use:
 
 .. code-block:: doscon
 
-    ...\> set DJANGO_SETTINGS_MODULE=my_postgres_settings
+    ...\> set THIBAUD_SETTINGS_MODULE=my_postgres_settings
     ...\> tox -e py312-postgres
 
 Running the JavaScript tests
@@ -527,7 +527,7 @@ test failures. You can adjust this behavior with the ``--parallel`` option:
 
     $ ./runtests.py basic --parallel=1
 
-You can also use the :envvar:`DJANGO_TEST_PROCESSES` environment variable for
+You can also use the :envvar:`THIBAUD_TEST_PROCESSES` environment variable for
 this purpose.
 
 Tips for writing tests

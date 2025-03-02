@@ -1838,7 +1838,9 @@ class AppResolutionOrderI18NTests(ResolutionOrderI18NTests):
             self.assertGettext("Date/time", "Datum/Zeit")
 
             with self.modify_settings(
-                INSTALLED_APPS={"remove": "thibaud.contrib.admin.apps.SimpleAdminConfig"}
+                INSTALLED_APPS={
+                    "remove": "thibaud.contrib.admin.apps.SimpleAdminConfig"
+                }
             ):
                 # Force refreshing translations.
                 activate("de")

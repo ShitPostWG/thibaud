@@ -1,7 +1,12 @@
 import datetime
 
 from thibaud.db import models
-from thibaud.test import SimpleTestCase, TestCase, override_settings, skipUnlessDBFeature
+from thibaud.test import (
+    SimpleTestCase,
+    TestCase,
+    override_settings,
+    skipUnlessDBFeature,
+)
 from thibaud.test.utils import requires_tz_support
 from thibaud.utils import timezone
 

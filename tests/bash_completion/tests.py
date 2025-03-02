@@ -19,14 +19,14 @@ class BashCompletionTests(unittest.TestCase):
     """
 
     def setUp(self):
-        self.old_DJANGO_AUTO_COMPLETE = os.environ.get("DJANGO_AUTO_COMPLETE")
-        os.environ["DJANGO_AUTO_COMPLETE"] = "1"
+        self.old_THIBAUD_AUTO_COMPLETE = os.environ.get("THIBAUD_AUTO_COMPLETE")
+        os.environ["THIBAUD_AUTO_COMPLETE"] = "1"
 
     def tearDown(self):
-        if self.old_DJANGO_AUTO_COMPLETE:
-            os.environ["DJANGO_AUTO_COMPLETE"] = self.old_DJANGO_AUTO_COMPLETE
+        if self.old_THIBAUD_AUTO_COMPLETE:
+            os.environ["THIBAUD_AUTO_COMPLETE"] = self.old_THIBAUD_AUTO_COMPLETE
         else:
-            del os.environ["DJANGO_AUTO_COMPLETE"]
+            del os.environ["THIBAUD_AUTO_COMPLETE"]
 
     def _user_input(self, input_str):
         """

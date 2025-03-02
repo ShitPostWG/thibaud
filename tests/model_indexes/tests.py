@@ -3,7 +3,12 @@ from unittest import mock
 from thibaud.conf import settings
 from thibaud.db import connection, models
 from thibaud.db.models.functions import Lower, Upper
-from thibaud.test import SimpleTestCase, TestCase, override_settings, skipUnlessDBFeature
+from thibaud.test import (
+    SimpleTestCase,
+    TestCase,
+    override_settings,
+    skipUnlessDBFeature,
+)
 from thibaud.test.utils import isolate_apps
 
 from .models import Book, ChildModel1, ChildModel2

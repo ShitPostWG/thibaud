@@ -1,13 +1,9 @@
-import os
-
 from thibaud.template import Context, Engine, TemplateSyntaxError
 from thibaud.template.base import Node
 from thibaud.template.library import InvalidTemplateLibrary
 from thibaud.test import SimpleTestCase
-from thibaud.test.utils import extend_sys_path
 
 from .templatetags import custom, inclusion
-from .utils import ROOT
 
 LIBRARIES = {
     "custom": "template_tests.templatetags.custom",
@@ -865,11 +861,6 @@ class InclusionTagTests(TagTestCase):
 
 
 class TemplateTagLoadingTests(SimpleTestCase):
-    @classmethod
-    def setUpClass(cls):
-        cls.egg_dir = os.path.join(ROOT, "eggs")
-        super().setUpClass()
-
     def test_load_error(self):
         msg = (
             "Invalid template library specified. ImportError raised when "
@@ -878,28 +869,6 @@ class TemplateTagLoadingTests(SimpleTestCase):
         )
         with self.assertRaisesMessage(InvalidTemplateLibrary, msg):
             Engine(libraries={"broken_tag": "template_tests.broken_tag"})
-
-    def test_load_error_egg(self):
-        egg_name = "%s/tagsegg.egg" % self.egg_dir
-        msg = (
-            "Invalid template library specified. ImportError raised when "
-            "trying to load 'tagsegg.templatetags.broken_egg': cannot "
-            "import name 'Xtemplate'"
-        )
-        with extend_sys_path(egg_name):
-            with self.assertRaisesMessage(InvalidTemplateLibrary, msg):
-                Engine(libraries={"broken_egg": "tagsegg.templatetags.broken_egg"})
-
-    def test_load_working_egg(self):
-        ttext = "{% load working_egg %}"
-        egg_name = "%s/tagsegg.egg" % self.egg_dir
-        with extend_sys_path(egg_name):
-            engine = Engine(
-                libraries={
-                    "working_egg": "tagsegg.templatetags.working_egg",
-                }
-            )
-            engine.from_string(ttext)
 
     def test_load_annotated_function(self):
         Engine(

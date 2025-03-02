@@ -622,7 +622,7 @@ class CreatesuperuserManagementCommandTestCase(TestCase):
 
         with mock.patch.dict(
             os.environ,
-            {"DJANGO_SUPERUSER_GROUP": str(nonexistent_group_id)},
+            {"THIBAUD_SUPERUSER_GROUP": str(nonexistent_group_id)},
         ):
             with self.assertRaisesMessage(CommandError, msg):
                 call_command(
@@ -988,7 +988,7 @@ class CreatesuperuserManagementCommandTestCase(TestCase):
         u = User.objects.get(username="joe")
         self.assertEqual(u.email, "")
 
-    @mock.patch.dict(os.environ, {"DJANGO_SUPERUSER_EMAIL": ""})
+    @mock.patch.dict(os.environ, {"THIBAUD_SUPERUSER_EMAIL": ""})
     def test_blank_email_allowed_non_interactive_environment_variable(self):
         new_io = StringIO()
 
@@ -1304,10 +1304,10 @@ class CreatesuperuserManagementCommandTestCase(TestCase):
     @mock.patch.dict(
         os.environ,
         {
-            "DJANGO_SUPERUSER_PASSWORD": "test_password",
-            "DJANGO_SUPERUSER_USERNAME": "test_superuser",
-            "DJANGO_SUPERUSER_EMAIL": "joe@somewhere.org",
-            "DJANGO_SUPERUSER_FIRST_NAME": "ignored_first_name",
+            "THIBAUD_SUPERUSER_PASSWORD": "test_password",
+            "THIBAUD_SUPERUSER_USERNAME": "test_superuser",
+            "THIBAUD_SUPERUSER_EMAIL": "joe@somewhere.org",
+            "THIBAUD_SUPERUSER_FIRST_NAME": "ignored_first_name",
         },
     )
     def test_environment_variable_non_interactive(self):
@@ -1326,7 +1326,7 @@ class CreatesuperuserManagementCommandTestCase(TestCase):
         with mock.patch.dict(
             os.environ,
             {
-                "DJANGO_SUPERUSER_ORGS": f"{org_id_1},{org_id_2}",
+                "THIBAUD_SUPERUSER_ORGS": f"{org_id_1},{org_id_2}",
             },
         ):
             call_command(
@@ -1343,8 +1343,8 @@ class CreatesuperuserManagementCommandTestCase(TestCase):
     @mock.patch.dict(
         os.environ,
         {
-            "DJANGO_SUPERUSER_USERNAME": "test_superuser",
-            "DJANGO_SUPERUSER_EMAIL": "joe@somewhere.org",
+            "THIBAUD_SUPERUSER_USERNAME": "test_superuser",
+            "THIBAUD_SUPERUSER_EMAIL": "joe@somewhere.org",
         },
     )
     def test_ignore_environment_variable_non_interactive(self):
@@ -1364,9 +1364,9 @@ class CreatesuperuserManagementCommandTestCase(TestCase):
     @mock.patch.dict(
         os.environ,
         {
-            "DJANGO_SUPERUSER_PASSWORD": "test_password",
-            "DJANGO_SUPERUSER_USERNAME": "test_superuser",
-            "DJANGO_SUPERUSER_EMAIL": "joe@somewhere.org",
+            "THIBAUD_SUPERUSER_PASSWORD": "test_password",
+            "THIBAUD_SUPERUSER_USERNAME": "test_superuser",
+            "THIBAUD_SUPERUSER_EMAIL": "joe@somewhere.org",
         },
     )
     def test_ignore_environment_variable_interactive(self):

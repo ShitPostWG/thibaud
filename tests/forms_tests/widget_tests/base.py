@@ -1,4 +1,4 @@
-from thibaud.forms.renderers import ThibaudTemplates, Jinja2
+from thibaud.forms.renderers import Jinja2, ThibaudTemplates
 from thibaud.test import SimpleTestCase
 
 try:

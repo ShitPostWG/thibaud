@@ -2,8 +2,8 @@
 Example docstring
 """
 
-from thibaud.utils.functional import cached_property
 from tests.sphinx.testdata.package.wildcard_module import *  # noqa
+from thibaud.utils.functional import cached_property
 
 from . import other_module  # noqa
 from .other_module import MyOtherClass  # noqa

@@ -54,10 +54,10 @@ jobs:
       - run: python -m pip install .
       - name: Prepare site-packages
         run: |
-          DJANGO_PACKAGE_ROOT=$(python -c 'import site; print(site.getsitepackages()[0])')/thibaud
-          echo $DJANGO_PACKAGE_ROOT
-          python -m compileall -b $DJANGO_PACKAGE_ROOT
-          find $DJANGO_PACKAGE_ROOT -name '*.py' -print -delete
+          THIBAUD_PACKAGE_ROOT=$(python -c 'import site; print(site.getsitepackages()[0])')/thibaud
+          echo $THIBAUD_PACKAGE_ROOT
+          python -m compileall -b $THIBAUD_PACKAGE_ROOT
+          find $THIBAUD_PACKAGE_ROOT -name '*.py' -print -delete
       - run: python -m pip install -r tests/requirements/py3.txt
       - name: Run tests
         run: python -Wall tests/runtests.py --verbosity=2

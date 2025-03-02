@@ -26,9 +26,9 @@ class LengthTests(SimpleTestCase):
     @setup({"length04": "{{ string|length }}"})
     def test_length04(self):
         output = self.engine.render_to_string("length04", {"string": "thibaud"})
-        self.assertEqual(output, "6")
+        self.assertEqual(output, "7")
 
-    @setup({"length05": "{% if string|length == 6 %}Pass{% endif %}"})
+    @setup({"length05": "{% if string|length == 7 %}Pass{% endif %}"})
     def test_length05(self):
         output = self.engine.render_to_string(
             "length05", {"string": mark_safe("thibaud")}

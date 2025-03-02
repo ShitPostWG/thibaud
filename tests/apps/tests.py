@@ -169,7 +169,9 @@ class AppsTests(SimpleTestCase):
         with self.assertRaises(LookupError):
             apps.get_app_config("admindocs")
 
-        msg = "No installed app with label 'thibaud.contrib.auth'. Did you mean 'myauth'"
+        msg = (
+            "No installed app with label 'thibaud.contrib.auth'. Did you mean 'myauth'"
+        )
         with self.assertRaisesMessage(LookupError, msg):
             apps.get_app_config("thibaud.contrib.auth")
 

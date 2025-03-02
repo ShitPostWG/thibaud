@@ -1,7 +1,7 @@
 [flake8]
 exclude = build,.git,.tox,./tests/.env
 extend-ignore = E203
-max-line-length = 88
+max-line-length = 90
 per-file-ignores =
     thibaud/core/cache/backends/filebased.py:W601
     thibaud/core/cache/backends/base.py:W601

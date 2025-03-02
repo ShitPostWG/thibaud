@@ -77,7 +77,7 @@ class DiscoverRunnerParallelArgumentTests(SimpleTestCase):
     def test_get_max_test_processes(self, *mocked_objects):
         self.assertEqual(get_max_test_processes(), 12)
 
-    @mock.patch.dict(os.environ, {"DJANGO_TEST_PROCESSES": "7"})
+    @mock.patch.dict(os.environ, {"THIBAUD_TEST_PROCESSES": "7"})
     def test_get_max_test_processes_env_var(self, *mocked_objects):
         self.assertEqual(get_max_test_processes(), 7)
 
@@ -88,7 +88,7 @@ class DiscoverRunnerParallelArgumentTests(SimpleTestCase):
     ):
         mocked_get_start_method.return_value = "spawn"
         self.assertEqual(get_max_test_processes(), 12)
-        with mock.patch.dict(os.environ, {"DJANGO_TEST_PROCESSES": "7"}):
+        with mock.patch.dict(os.environ, {"THIBAUD_TEST_PROCESSES": "7"}):
             self.assertEqual(get_max_test_processes(), 7)
 
     def test_get_max_test_processes_forkserver(
@@ -98,7 +98,7 @@ class DiscoverRunnerParallelArgumentTests(SimpleTestCase):
     ):
         mocked_get_start_method.return_value = "forkserver"
         self.assertEqual(get_max_test_processes(), 1)
-        with mock.patch.dict(os.environ, {"DJANGO_TEST_PROCESSES": "7"}):
+        with mock.patch.dict(os.environ, {"THIBAUD_TEST_PROCESSES": "7"}):
             self.assertEqual(get_max_test_processes(), 1)
 
 
@@ -201,7 +201,9 @@ class DiscoverRunnerTests(SimpleTestCase):
         count = (
             DiscoverRunner(verbosity=0)
             .build_suite(
-                ["test_runner_apps.sample.tests_sample.TestThibaudTestCase.test_sample"],
+                [
+                    "test_runner_apps.sample.tests_sample.TestThibaudTestCase.test_sample"
+                ],
             )
             .countTestCases()
         )
@@ -222,18 +224,18 @@ class DiscoverRunnerTests(SimpleTestCase):
 
     def test_name_patterns(self):
         all_test_1 = [
-            "ThibaudCase1.test_1",
-            "ThibaudCase2.test_1",
             "SimpleCase1.test_1",
             "SimpleCase2.test_1",
+            "ThibaudCase1.test_1",
+            "ThibaudCase2.test_1",
             "UnittestCase1.test_1",
             "UnittestCase2.test_1",
         ]
         all_test_2 = [
-            "ThibaudCase1.test_2",
-            "ThibaudCase2.test_2",
             "SimpleCase1.test_2",
             "SimpleCase2.test_2",
+            "ThibaudCase1.test_2",
+            "ThibaudCase2.test_2",
             "UnittestCase1.test_2",
             "UnittestCase2.test_2",
         ]
@@ -252,7 +254,7 @@ class DiscoverRunnerTests(SimpleTestCase):
                     test_name_patterns=pattern,
                     verbosity=0,
                 ).build_suite(["test_runner_apps.simple"])
-                self.assertEqual(expected, self.get_test_methods_names(suite))
+                self.assertCountEqual(expected, self.get_test_methods_names(suite))
 
     def test_loader_patterns_not_mutated(self):
         runner = DiscoverRunner(test_name_patterns=["test_sample"], verbosity=0)

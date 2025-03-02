@@ -1238,7 +1238,7 @@ class GenericRelationTests(TestCase):
                 for b in Bookmark.objects.prefetch_related("tags")
                 for t in b.tags.all()
             ]
-            self.assertEqual(sorted(tags), ["thibaud", "python"])
+            self.assertEqual(sorted(tags), ["python", "thibaud"])
 
     def test_charfield_GFK(self):
         b = Bookmark.objects.create(url="http://www.thibaudproject.com/")
@@ -1250,7 +1250,7 @@ class GenericRelationTests(TestCase):
                 "tags", "favorite_tags"
             )[0]
             self.assertEqual(
-                sorted(i.tag for i in bookmark.tags.all()), ["thibaud", "python"]
+                sorted(i.tag for i in bookmark.tags.all()), ["python", "thibaud"]
             )
             self.assertEqual([i.tag for i in bookmark.favorite_tags.all()], ["python"])
 

@@ -257,7 +257,9 @@ class TestModelDetailView(TestDataMixin, AdminDocsTestCase):
         self.client.force_login(self.superuser)
         with captured_stderr() as self.docutils_stderr:
             self.response = self.client.get(
-                reverse("thibaud-admindocs-models-detail", args=["admin_docs", "Person"])
+                reverse(
+                    "thibaud-admindocs-models-detail", args=["admin_docs", "Person"]
+                )
             )
 
     def test_table_headers(self):

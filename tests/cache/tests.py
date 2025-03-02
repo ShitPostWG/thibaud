@@ -1480,7 +1480,9 @@ PyMemcacheCache_params = configured_caches.get(
 # The memcached backends don't support cull-related options like `MAX_ENTRIES`.
 memcached_excluded_caches = {"cull", "zero_cull"}
 
-RedisCache_params = configured_caches.get("thibaud.core.cache.backends.redis.RedisCache")
+RedisCache_params = configured_caches.get(
+    "thibaud.core.cache.backends.redis.RedisCache"
+)
 
 # The redis backend does not support cull-related options like `MAX_ENTRIES`.
 redis_excluded_caches = {"cull", "zero_cull"}

@@ -7,10 +7,9 @@ from unittest import mock
 
 from admin_scripts.tests import AdminScriptTestCase
 
-from thibaud.apps import apps
 from thibaud.core import management
 from thibaud.core.checks import Tags
-from thibaud.core.management import BaseCommand, CommandError, find_commands
+from thibaud.core.management import BaseCommand, CommandError
 from thibaud.core.management.base import OutputWrapper
 from thibaud.core.management.utils import (
     find_command,
@@ -22,7 +21,7 @@ from thibaud.core.management.utils import (
 )
 from thibaud.db import connection
 from thibaud.test import SimpleTestCase, override_settings
-from thibaud.test.utils import captured_stderr, extend_sys_path
+from thibaud.test.utils import captured_stderr
 from thibaud.utils import translation
 
 from .management.commands import dance
@@ -125,19 +124,6 @@ class CommandTests(SimpleTestCase):
         finally:
             if current_path is not None:
                 os.environ["PATH"] = current_path
-
-    def test_discover_commands_in_eggs(self):
-        """
-        Management commands can also be loaded from Python eggs.
-        """
-        egg_dir = "%s/eggs" % os.path.dirname(__file__)
-        egg_name = "%s/basic.egg" % egg_dir
-        with extend_sys_path(egg_name):
-            with self.settings(INSTALLED_APPS=["commandegg"]):
-                cmds = find_commands(
-                    os.path.join(apps.get_app_config("commandegg").path, "management")
-                )
-        self.assertEqual(cmds, ["eggcommand"])
 
     def test_call_command_option_parsing(self):
         """

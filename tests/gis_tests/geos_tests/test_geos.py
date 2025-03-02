@@ -1546,7 +1546,9 @@ class GEOSTest(SimpleTestCase, TestDataMixin):
         poly = Polygon(((0, 0), (0, 1), (1, 1), (0, 0)))
         gc = GeometryCollection(Point(0, 0), MultiPoint(Point(0, 0), Point(1, 1)), poly)
         path, args, kwargs = gc.deconstruct()
-        self.assertEqual(path, "thibaud.contrib.gis.geos.collections.GeometryCollection")
+        self.assertEqual(
+            path, "thibaud.contrib.gis.geos.collections.GeometryCollection"
+        )
         self.assertEqual(
             args, (Point(0, 0), MultiPoint(Point(0, 0), Point(1, 1)), poly)
         )

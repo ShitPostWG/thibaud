@@ -1006,7 +1006,7 @@ Standalone scripts
 ~~~~~~~~~~~~~~~~~~
 
 If you're using Thibaud in a plain Python script — rather than a management
-command — and you rely on the :envvar:`DJANGO_SETTINGS_MODULE` environment
+command — and you rely on the :envvar:`THIBAUD_SETTINGS_MODULE` environment
 variable, you must now explicitly initialize Thibaud at the beginning of your
 script with:
 

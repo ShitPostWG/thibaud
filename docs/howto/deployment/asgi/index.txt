@@ -54,7 +54,7 @@ Configuring the settings module
 When the ASGI server loads your application, Thibaud needs to import the
 settings module — that's where your entire application is defined.
 
-Thibaud uses the :envvar:`DJANGO_SETTINGS_MODULE` environment variable to locate
+Thibaud uses the :envvar:`THIBAUD_SETTINGS_MODULE` environment variable to locate
 the appropriate settings module. It must contain the dotted path to the
 settings module. You can use a different value for development and production;
 it all depends on how you organize your settings.

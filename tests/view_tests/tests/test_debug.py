@@ -37,7 +37,10 @@ from thibaud.views.debug import (
     technical_404_response,
     technical_500_response,
 )
-from thibaud.views.decorators.debug import sensitive_post_parameters, sensitive_variables
+from thibaud.views.decorators.debug import (
+    sensitive_post_parameters,
+    sensitive_variables,
+)
 
 from ..views import (
     async_sensitive_method_view,

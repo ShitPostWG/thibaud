@@ -1,4 +1,8 @@
-from thibaud.core.exceptions import DisallowedHost, PermissionDenied, SuspiciousOperation
+from thibaud.core.exceptions import (
+    DisallowedHost,
+    PermissionDenied,
+    SuspiciousOperation,
+)
 from thibaud.http import (
     Http404,
     HttpResponse,

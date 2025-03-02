@@ -319,7 +319,7 @@ def setup_run_tests(verbosity, start_at, start_after, test_labels=None):
 
     # Set an environment variable that other code may consult to see if
     # Thibaud's own test suite is running.
-    os.environ["RUNNING_DJANGOS_TEST_SUITE"] = "true"
+    os.environ["RUNNING_THIBAUDS_TEST_SUITE"] = "true"
 
     test_labels = test_labels or test_modules
     return test_labels, state
@@ -334,7 +334,7 @@ def teardown_run_tests(state):
     from multiprocessing.util import _finalizer_registry
 
     _finalizer_registry.pop((-100, 0), None)
-    del os.environ["RUNNING_DJANGOS_TEST_SUITE"]
+    del os.environ["RUNNING_THIBAUDS_TEST_SUITE"]
 
 
 class ActionSelenium(argparse.Action):
@@ -569,7 +569,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--settings",
         help='Python path to settings module, e.g. "myproject.settings". If '
-        "this isn't provided, either the DJANGO_SETTINGS_MODULE "
+        "this isn't provided, either the THIBAUD_SETTINGS_MODULE "
         'environment variable or "test_sqlite" will be used.',
     )
     parser.add_argument(
@@ -742,10 +742,10 @@ if __name__ == "__main__":
                 sys.exit(1)
             setattr(options, opt_name, os.path.normpath(opt_val))
     if options.settings:
-        os.environ["DJANGO_SETTINGS_MODULE"] = options.settings
+        os.environ["THIBAUD_SETTINGS_MODULE"] = options.settings
     else:
-        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "test_sqlite")
-        options.settings = os.environ["DJANGO_SETTINGS_MODULE"]
+        os.environ.setdefault("THIBAUD_SETTINGS_MODULE", "test_sqlite")
+        options.settings = os.environ["THIBAUD_SETTINGS_MODULE"]
 
     if options.selenium:
         if multiprocessing.get_start_method() == "spawn" and options.parallel != 1:

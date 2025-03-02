@@ -896,10 +896,10 @@ class ListFiltersTests(TestCase):
         changelist = modeladmin.get_changelist_instance(request)
         filterspec = changelist.get_filters(request)[0][0]
         expected = [
-            (self.bio_book.pk, "Thibaud: a biography"),
-            (self.thibaudnaut_book.pk, "Thibaudnaut: an art of living"),
             (self.guitar_book.pk, "Guitar for dummies"),
             (self.thibaud_book.pk, "The Thibaud Book"),
+            (self.bio_book.pk, "Thibaud: a biography"),
+            (self.thibaudnaut_book.pk, "Thibaudnaut: an art of living"),
         ]
         self.assertEqual(filterspec.lookup_choices, expected)
 
@@ -1035,7 +1035,9 @@ class ListFiltersTests(TestCase):
         self.assertEqual(sorted(filterspec.lookup_choices), sorted(expected))
 
     def test_listfilter_genericrelation(self):
-        thibaud_bookmark = Bookmark.objects.create(url="https://www.thibaudproject.com/")
+        thibaud_bookmark = Bookmark.objects.create(
+            url="https://www.thibaudproject.com/"
+        )
         python_bookmark = Bookmark.objects.create(url="https://www.python.org/")
         kernel_bookmark = Bookmark.objects.create(url="https://www.kernel.org/")
 
@@ -1959,7 +1961,9 @@ class ListFiltersTests(TestCase):
 
         modeladmin = BookmarkGenericRelation(Bookmark, site)
 
-        thibaud_bookmark = Bookmark.objects.create(url="https://www.thibaudproject.com/")
+        thibaud_bookmark = Bookmark.objects.create(
+            url="https://www.thibaudproject.com/"
+        )
         python_bookmark = Bookmark.objects.create(url="https://www.python.org/")
         none_tags = Bookmark.objects.create(url="https://www.kernel.org/")
         TaggedItem.objects.create(content_object=thibaud_bookmark, tag="python")

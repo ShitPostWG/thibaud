@@ -128,7 +128,7 @@ def json_view(request):
 def view_with_header(request):
     "A view that has a custom header"
     response = HttpResponse()
-    response.headers["X-DJANGO-TEST"] = "Slartibartfast"
+    response.headers["X-THIBAUD-TEST"] = "Slartibartfast"
     return response
 
 

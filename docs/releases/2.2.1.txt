@@ -58,7 +58,7 @@ Bugfixes
 
 * Increased the default timeout when using ``Watchman`` to 5 seconds to prevent
   falling back to ``StatReloader`` on larger projects and made it customizable
-  via the :envvar:`DJANGO_WATCHMAN_TIMEOUT` environment variable
+  via the :envvar:`THIBAUD_WATCHMAN_TIMEOUT` environment variable
   (:ticket:`30361`).
 
 * Fixed a regression in Thibaud 2.2 that caused a crash when migrating

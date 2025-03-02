@@ -20,8 +20,8 @@ class TestUtilsCryptoMisc(SimpleTestCase):
 
     def test_salted_hmac(self):
         tests = [
-            ((b"salt", b"value"), {}, "b51a2e619c43b1ca4f91d15c57455521d71d61eb"),
-            (("salt", "value"), {}, "b51a2e619c43b1ca4f91d15c57455521d71d61eb"),
+            ((b"salt", b"value"), {}, "276d4497cb6c7b06e21f34ad4e0d297d6cddf8f7"),
+            (("salt", "value"), {}, "276d4497cb6c7b06e21f34ad4e0d297d6cddf8f7"),
             (
                 ("salt", "value"),
                 {"secret": "abcdefg"},
@@ -35,7 +35,7 @@ class TestUtilsCryptoMisc(SimpleTestCase):
             (
                 ("salt", "value"),
                 {"algorithm": "sha256"},
-                "ee0bf789e4e009371a5372c90f73fcf17695a8439c9108b0480f14e347b3f9ec",
+                "00f03fa9358276f4828b4fe091fb9d83fdb2f5ada56d6390ae80cda61067e241",
             ),
             (
                 ("salt", "value"),

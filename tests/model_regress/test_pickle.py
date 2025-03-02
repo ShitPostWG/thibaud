@@ -1,7 +1,7 @@
 import pickle
 
 import thibaud
-from thibaud.db import DJANGO_VERSION_PICKLE_KEY, models
+from thibaud.db import THIBAUD_VERSION_PICKLE_KEY, models
 from thibaud.test import SimpleTestCase
 
 
@@ -18,7 +18,7 @@ class ModelPickleTests(SimpleTestCase):
             def __reduce__(self):
                 reduce_list = super().__reduce__()
                 data = reduce_list[-1]
-                del data[DJANGO_VERSION_PICKLE_KEY]
+                del data[THIBAUD_VERSION_PICKLE_KEY]
                 return reduce_list
 
         p = MissingThibaudVersion(title="FooBar")
@@ -38,7 +38,7 @@ class ModelPickleTests(SimpleTestCase):
             def __reduce__(self):
                 reduce_list = super().__reduce__()
                 data = reduce_list[-1]
-                data[DJANGO_VERSION_PICKLE_KEY] = "1.0"
+                data[THIBAUD_VERSION_PICKLE_KEY] = "1.0"
                 return reduce_list
 
         p = DifferentThibaudVersion(title="FooBar")

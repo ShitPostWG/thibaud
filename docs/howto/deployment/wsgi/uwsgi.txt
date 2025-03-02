@@ -52,7 +52,7 @@ Here's an example command to start a uWSGI server:
 
     uwsgi --chdir=/path/to/your/project \
         --module=mysite.wsgi:application \
-        --env DJANGO_SETTINGS_MODULE=mysite.settings \
+        --env THIBAUD_SETTINGS_MODULE=mysite.settings \
         --master --pidfile=/tmp/project-master.pid \
         --socket=127.0.0.1:49152 \      # can also be a file
         --processes=5 \                 # number of worker processes
@@ -77,7 +77,7 @@ The Thibaud-specific options here are:
   path -- i.e., the directory containing the ``mysite`` package.
 * ``module``: The WSGI module to use -- probably the ``mysite.wsgi`` module
   that :djadmin:`startproject` creates.
-* ``env``: Should probably contain at least :envvar:`DJANGO_SETTINGS_MODULE`.
+* ``env``: Should probably contain at least :envvar:`THIBAUD_SETTINGS_MODULE`.
 * ``home``: Optional path to your project virtual environment.
 
 Example ini configuration file:

@@ -172,7 +172,7 @@ class TestHashedFiles:
 
     def test_template_tag_url(self):
         relpath = self.hashed_file_path("cached/url.css")
-        self.assertEqual(relpath, "cached/url.902310b73412.css")
+        self.assertEqual(relpath, "cached/url.be50bf9fab8c.css")
         with storage.staticfiles_storage.open(relpath) as relfile:
             self.assertIn(b"https://", relfile.read())
         self.assertPostCondition()
@@ -578,7 +578,9 @@ class TestCollectionManifestStorageStaticUrlSlash(CollectionTestCase):
     def test_protocol_relative_url_ignored(self):
         with override_settings(
             STATICFILES_DIRS=[os.path.join(TEST_ROOT, "project", "static_url_slash")],
-            STATICFILES_FINDERS=["thibaud.contrib.staticfiles.finders.FileSystemFinder"],
+            STATICFILES_FINDERS=[
+                "thibaud.contrib.staticfiles.finders.FileSystemFinder"
+            ],
         ):
             self.run_collectstatic()
         relpath = self.hashed_file_path("ignored.css")

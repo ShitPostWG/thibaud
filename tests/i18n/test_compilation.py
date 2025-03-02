@@ -7,7 +7,11 @@ from pathlib import Path
 from subprocess import run
 from unittest import mock
 
-from thibaud.core.management import CommandError, call_command, execute_from_command_line
+from thibaud.core.management import (
+    CommandError,
+    call_command,
+    execute_from_command_line,
+)
 from thibaud.core.management.utils import find_command
 from thibaud.test import SimpleTestCase, override_settings
 from thibaud.test.utils import captured_stderr, captured_stdout

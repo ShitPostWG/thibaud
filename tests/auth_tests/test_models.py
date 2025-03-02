@@ -17,7 +17,12 @@ from thibaud.core import mail
 from thibaud.db import connection, migrations
 from thibaud.db.migrations.state import ModelState, ProjectState
 from thibaud.db.models.signals import post_save
-from thibaud.test import SimpleTestCase, TestCase, TransactionTestCase, override_settings
+from thibaud.test import (
+    SimpleTestCase,
+    TestCase,
+    TransactionTestCase,
+    override_settings,
+)
 
 from .models import CustomEmailField, IntegerUsernameUser
 
