@@ -3,9 +3,9 @@ import unittest
 
 from thibaud.forms.renderers import (
     BaseRenderer,
-    ThibaudTemplates,
     Jinja2,
     TemplatesSetting,
+    ThibaudTemplates,
 )
 from thibaud.test import SimpleTestCase
 
