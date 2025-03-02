@@ -1,12 +1,9 @@
-import os
-
 from thibaud.template import Context, Engine, TemplateSyntaxError
 from thibaud.template.base import Node
 from thibaud.template.library import InvalidTemplateLibrary
 from thibaud.test import SimpleTestCase
 
 from .templatetags import custom, inclusion
-from .utils import ROOT
 
 LIBRARIES = {
     "custom": "template_tests.templatetags.custom",
